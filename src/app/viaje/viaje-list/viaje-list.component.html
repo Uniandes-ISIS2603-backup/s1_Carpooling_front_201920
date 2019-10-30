@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<div class="col-md-2">
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope='row' colspan="8">Viaje Module</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr scope='row' *ngFor="let v of viajes">
+					<td style="cursor: pointer;">
+						<a class="figure-caption" routerLink="/viajes/{{v.id}}">{{v.id}}</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
