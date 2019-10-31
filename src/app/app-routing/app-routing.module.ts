@@ -31,29 +31,22 @@ const routes: Routes = [
                         only: ['GUEST']
                     }
                 }
-            },
-            {
-                path: 'viajes',
-                children:[
-                  {
-                    path: 'list',
-                    component: ViajeListComponent 
-                  },
-                  {
-                    path: ':id',
-                    component: ViajeDetailComponent
-                  }
-                  ]
-              }
+            }
         ]
     },
     {
-        path: 'home',
-        component: AuthLoginComponent
-    },
-    {
-        path: '**',
-        redirectTo: 'home',
+        path: 'viajes',
+        children:[
+          {
+            path: 'list',
+            component: ViajeListComponent 
+          },
+          {
+            path: ':id',
+            component: ViajeDetailComponent,
+            outlet: 'detail'
+          }
+          ]
     }
 ];
 

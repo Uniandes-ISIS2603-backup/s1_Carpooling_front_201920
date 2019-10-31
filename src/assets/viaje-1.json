@@ -1,0 +1,11 @@
+{
+    "id": 1,
+    "destino": "Bogota",
+    "origen":"Santa Marta",
+    "fechaDeSalida":"11/10/2019",
+    "fechaDeLlegada":"12/10/2019",
+    "cupos": 4,
+    "costoViaje":20000,
+    "estadoViaje":"PUBLICADO",
+    "description":"Este es el viaje 1"
+}

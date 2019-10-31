@@ -1,0 +1,11 @@
+{
+    "id": 2,
+    "destino": "Medellin",
+    "origen":"Cali",
+    "fechaDeSalida":"10/5/2019",
+    "fechaDeLlegada":"10/5/2019",
+    "cupos": 3,
+    "costoViaje":30000,
+    "estadoViaje":"TERMINADO",
+    "description":"Este es el viaje 2"
+}
