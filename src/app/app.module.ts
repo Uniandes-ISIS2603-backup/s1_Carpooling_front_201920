@@ -13,6 +13,7 @@ import { ViajeModule} from './viaje/viaje.module';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {ReservaModule} from './reserva/reserva.module';
 
 
 
@@ -39,7 +40,8 @@ import {AuthModule} from './auth/auth.module';
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
         NgbModule,
-        ViajeModule
+        ViajeModule,
+        ReservaModule
     ],
     bootstrap: [AppComponent],
     providers: [
