@@ -1,10 +1,5 @@
-export interface ViajeDetail {
-  id: number;
-  destino: string;
-  origen: string;
-  fechaDeSalida: string;
-  fechaDeLlegada: string;
-  cupos: number;
-  costoViaje: number;
-  estadoViaje: string;
+import { Viaje } from './viaje';
+
+export class ViajeDetail extends Viaje{
+  description:string;
 } 

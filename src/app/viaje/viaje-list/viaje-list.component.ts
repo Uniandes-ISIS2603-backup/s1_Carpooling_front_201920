@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViajeDetail } from '../viaje-detail';
+import { Viaje } from '../viaje';
 import { ViajeService } from '../viaje.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ViajeService } from '../viaje.service';
 })
 export class ViajeListComponent implements OnInit {
 
-  viajes: ViajeDetail[] = [];
+  viajes: Viaje[] = [];
 
   constructor(private viajeService:ViajeService) { }
 
