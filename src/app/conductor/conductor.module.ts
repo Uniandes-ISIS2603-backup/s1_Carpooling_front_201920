@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
 import { ConductorVehiculoComponent } from './conductor-vehiculo/conductor-vehiculo.component';
 import { ConductorAddVehiculoComponent } from './conductor-add-vehiculo/conductor-add-vehiculo.component';
+import { ConductorCalificacionComponent } from './conductor-calificacion/conductor-calificacion.component';
+import { ConductorAddCalificacionComponent } from './conductor-add-calificacion/conductor-add-calificacion.component';
 import { CreateConductorComponent } from './create-conductor/create-conductor.component';
 
 @NgModule({
@@ -15,7 +17,7 @@ import { CreateConductorComponent } from './create-conductor/create-conductor.co
     AppRoutingModule,
     HttpClientModule
   ],
-  declarations: [ConductorListComponent, ConductorDetailComponent, ConductorVehiculoComponent, ConductorAddVehiculoComponent, CreateConductorComponent],
+  declarations: [ConductorListComponent, ConductorDetailComponent, ConductorVehiculoComponent, ConductorAddVehiculoComponent, CreateConductorComponent, ConductorCalificacionComponent, ConductorAddCalificacionComponent],
   providers: [ConductorService]
 })
 export class ConductorModule { }
