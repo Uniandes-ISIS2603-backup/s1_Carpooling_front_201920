@@ -37,6 +37,19 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'viajeros',
+        children: [{
+          path: 'list',
+          component: ViajeroListComponent
+        },
+        {
+          path: ':idViajero',
+          component: ViajeroDetailComponent,
+          outlet: 'detail'
+        }
+        ]
+      },
+    {
         path: 'viajes',
         children:[
           {
@@ -48,7 +61,7 @@ const routes: Routes = [
             component: ViajeDetailComponent
           }
           ]
-    },
+    }
 ];
 
 @NgModule({

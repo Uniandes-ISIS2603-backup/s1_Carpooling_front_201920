@@ -3,11 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Viajero } from './viajero';
 import { ViajeroDetail } from './viajero-detail';
 import { Observable } from 'rxjs';
-import {Calificacion} from './calificacion';
 
 const API_URL = "../../assets/";
-const viajeros = 'viajeros.json';
-const calificaciones = '/calificaciones';
+const viajeros = 'viajeros';
 
 /**
 * The service provider for everything related to editorials
@@ -23,9 +21,6 @@ export class ViajeroService {
     */
     constructor(private http: HttpClient) { }
     
-    createCalificacion(viajeroId, calificacion): Observable<Calificacion> {
-      return this.http.post<Calificacion>(API_URL + viajeros + '/' + viajeroId + calificaciones, calificacion);
-  }
 
     getViajeros() : Observable<Viajero[]> {
         return this.http.get<Viajero[]>(API_URL + viajeros);
