@@ -3,9 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ViajeDetail } from './viaje-detail';
 import { Viaje } from './viaje';
+import {environment} from '../../environments/environment';
+import { Trayecto } from './trayecto';
 
-const API_URL = '../../assets/';
-const viajes = 'viajes.json';
+const API_URL = environment.apiURL;
+const viajes = '/viajes';
 
 @Injectable()
 export class ViajeService {
@@ -17,8 +19,11 @@ export class ViajeService {
   }
 
   getViajeDetail(viajeId:number):Observable<ViajeDetail>{
-    console.log("Toy devolviendo el Detail");
-    return this.http.get<ViajeDetail>(API_URL + "viaje-" + viajeId+".json");
+    return this.http.get<ViajeDetail>(API_URL + viajes + "/" +viajeId);
   }
+
+  createTrayecto(viajeId, trayecto): Observable<Trayecto> {
+    return this.http.post<Trayecto>(API_URL + viajes + '/' + viajeId + "/trayectos", trayecto);
+}
 
 }
