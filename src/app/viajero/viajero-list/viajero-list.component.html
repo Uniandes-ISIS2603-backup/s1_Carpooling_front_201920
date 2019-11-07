@@ -16,6 +16,10 @@
 				<tbody>
 					<tr *ngFor="let i of viajeros">
 						<td style="cursor: pointer;">
+							<button routerLink="/viajeros/{{i.id}}" routerLinkActive="active">Calificaciones y más</button>
+						</td>
+
+						<td style="cursor: pointer;">
 							<a class="figure-caption" (click)="onSelected(i.id)">{{i.nombre}}</a>
 						</td>            
             <td style="cursor: pointer;">

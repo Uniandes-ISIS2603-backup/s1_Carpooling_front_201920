@@ -1,2 +1,31 @@
-<p class="h4 p-3">Viajero: {{viajeroDetail.nombre}}</p>
-<p> {{viajeroDetail.description}}</p>
+<div class="panel panel-default"> 
+    <div>
+        <div class="border margin">
+<div class = "row">
+    <div class = "col">
+          <p class="h4 p-3">Viajero: {{viajeroDetail.nombre}}</p>
+          <p> {{viajeroDetail.description}}</p>
+        </div>
+        </div>
+        <div >
+                <div class="row">
+                    <div class="col-md-3">
+                        <p *ngIf="viajeroDetail.calificaciones.length > 0">
+                            <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionListComponent.isCollapsed,'btn-outline-primary':!calificacionListComponent.isCollapsed}" (click)="toggleCalificaciones()">
+                                Calificaciones of the viajero
+                            </button>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionAddComponent.isCollapsed,'btn-outline-primary':!calificacionAddComponent.isCollapsed}" (click)="toggleCreateCalificacion()">
+                                Create a Calificacion
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
