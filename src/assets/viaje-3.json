@@ -7,5 +7,7 @@
     "cupos": 2,
     "costoViaje":37000,
     "estadoViaje":"PUBLICADO",
-    "description":"Este es el viaje 3"
-  }
+    "trayectos":[],
+    "calificaciones":[],
+    "reservas":[]
+}

@@ -36,4 +36,24 @@
   "cupos": 5,
   "costoViaje":15000,
   "estadoViaje":"PUBLICADO"
+},
+{
+  "id": 3,
+  "destino": "Bucaramanga",
+  "origen":"Cartagena",
+  "fechaDeSalida":"25/9/2020",
+  "fechaDeLlegada":"25/9/2020",
+  "cupos": 2,
+  "costoViaje":37000,
+  "estadoViaje":"PUBLICADO"
+},
+{
+  "id": 4,
+  "destino": "Barranquilla",
+  "origen":"Agua Chica",
+  "fechaDeSalida":"11/11/2019",
+  "fechaDeLlegada":"11/11/2019",
+  "cupos": 5,
+  "costoViaje":15000,
+  "estadoViaje":"PUBLICADO"
 }]

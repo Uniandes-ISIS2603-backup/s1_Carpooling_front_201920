@@ -7,5 +7,7 @@
     "cupos": 5,
     "costoViaje":15000,
     "estadoViaje":"PUBLICADO",
-    "description":"Este es el viaje 4"
+    "trayectos":[],
+    "calificaciones":[],
+    "reservas":[]
 }

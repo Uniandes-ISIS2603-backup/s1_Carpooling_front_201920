@@ -1,18 +1,19 @@
-<div class="container-fluid">
-	<div class="col-md-2">
-		<table class="table table-striped">
-			<thead class="thead-dark">
-				<tr>
-					<th scope='row' colspan="8">Viaje Module</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr scope='row' *ngFor="let v of viajes">
-					<td style="cursor: pointer;">
-						<a class="figure-caption" [routerLink]="['/viajes', { outlets: { 'detail': [v.id] } }]">{{v.id}}</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+<div class="row offset-md-1">
+	<div class="card-group" *ngFor="let v of viajes">
+		<div class="card border-secondary" style="width: 16rem;">
+			<div class="card-body">
+				<ul>
+					<li class="card-text">Destino: {{v.destino}}</li>
+					<li class="card-text">Origen: {{v.origen}}</li>
+					<li class="card-text">Fecha de Salida: {{v.fechaDeSalida}}</li>
+					<li class="card-text">Fecha de llegada: {{v.fechaDeLlegada}}</li>
+					<li class="card-text">Cupos: {{v.cupos}}</li>
+					<li class="card-text">Costo: {{v.costoViaje}}</li>
+					<li class="card-text">Estado: {{v.estado}}</li>
+				</ul>
+				<a class="btn btn-primary" routerLink="/viajes/{{v.id}}">Ver
+					en Detalle</a>
+			</div>
+		</div>
 	</div>
 </div>
