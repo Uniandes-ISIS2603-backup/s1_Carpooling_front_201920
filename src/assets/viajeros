@@ -1,0 +1,40 @@
+[{
+  "id": 1,
+	"nombre": "Juan Ballesteros",
+	"telefono": "3114356984",
+	"correo": "s.ballesteros10@uniandes.edu.o",
+	"numDocumento": "12753070",
+	"contrasenha": "jokersito",
+	"fechaDeNacimiento": "1999-11-15T00:00:00-05:00",
+	"tipoDocumento":"CEDULA_DE_CIUDADANA"
+},
+ {
+  "id": 2,
+	"nombre": "Santiago Ballesteros",
+	"telefono": "3014356984",
+	"correo": "s.ballesteros11@uniandes.edu.o",
+	"numDocumento": "1275309870",
+	"contrasenha": "jokersito",
+	"fechaDeNacimiento": "1999-11-15T00:00:00-05:00",
+	"tipoDocumento":"CEDULA_DE_CIUDADANA"
+},
+{
+  "id": 3,
+  "nombre": "David",
+  "telefono": "3114666984",
+	"correo": "s.ballesteros09@uniandes.edu.o",
+	"numDocumento": "12753073210",
+	"contrasenha": "jokersito",
+	"fechaDeNacimiento": "1999-11-15T00:00:00-05:00",
+	"tipoDocumento":"CEDULA_DE_CIUDADANA"
+},
+{
+  "id": 4,
+  "nombre": "Norma",
+  "telefono": "3155566984",
+	"correo": "s.ballesteros@uniandes.edu.o",
+	"numDocumento": "1275307332210",
+	"contrasenha": "jokersito",
+	"fechaDeNacimiento": "1999-11-15T00:00:00-05:00",
+	"tipoDocumento":"CEDULA_DE_CIUDADANA"
+}]
