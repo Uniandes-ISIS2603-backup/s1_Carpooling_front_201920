@@ -1,0 +1,78 @@
+<div id="collapseAddVehiculo" [ngbCollapse]="isCollapsed">
+  <div class="container-fluid">
+      <h3>Add a vehiculo</h3>
+      <form soat="post" (ngSubmit)="vehiculoForm.form.valid && postVehiculo(vehiculoForm)" #vehiculoForm="ngForm" novalidate>
+            <div class="row">
+              <div class="col">
+                  <div class="form-group">
+                      <label for="vehiculoSoat"><b>Soat</b></label>
+                      <input type="text" soat="vehiculoSoat" class="form-control" id="vehiculoSoat" [(ngModel)]="vehiculo.soat"
+                             #vehiculoSoat="ngModel" [ngClass]="{ 'is-invalid': vehiculoForm.submitted && vehiculoSoat.invalid }" required>
+                             <div class="invalid-feedback">
+                          <div>The vehiculo's soat is missing</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="form-group">
+                      <label for="vehiculoPlaca"><b>Placa</b></label>
+                      <input type="text" soat="vehiculoPlaca" class="form-control" id="vehiculoPlaca" [(ngModel)]="vehiculo.placa"
+                             #vehiculoPlaca="ngModel" [ngClass]="{ 'is-invalid': vehiculoForm.submitted && vehiculoSoat.invalid }" required>
+                             <div class="invalid-feedback">
+                          <div>The vehiculo's placa is missing</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="form-group">
+                      <label for="vehiculoAseguradora"><b>Aseguradora</b></label>
+                      <textarea soat="vehiculoAseguradora" class="form-control" id="vehiculoAseguradora" [(ngModel)]="vehiculo.aseguradora"
+                                #vehiculoAseguradora="ngModel" [ngClass]="{ 'is-invalid': vehiculoForm.submitted && vehiculoAseguradora.invalid }"
+                                required></textarea>
+                      <div class="invalid-feedback">
+                          <div>The vehiculo's aseguradora is missing</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                    <label for="vehiculoVigenciaSoat"><b>VigenciaSoat</b></label>
+                    <textarea soat="vehiculoVigenciaSoat" class="form-control" id="vehiculoVigenciaSoat" [(ngModel)]="vehiculo.vigenciaSoat"
+                              #vehiculoVigenciaSoat="ngModel" [ngClass]="{ 'is-invalid': vehiculoForm.submitted && vehiculoVigenciaSoat.invalid }"
+                              required></textarea>
+                    <div class="invalid-feedback">
+                        <div>The vehiculo's vigenciaSoat is missing</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                  <label for="vehiculoModelo"><b>Modelo</b></label>
+                  <textarea soat="vehiculoModelo" class="form-control" id="vehiculoModelo" [(ngModel)]="vehiculo.modelo"
+                            #vehiculoModelo="ngModel" [ngClass]="{ 'is-invalid': vehiculoForm.submitted && vehiculoModelo.invalid }"
+                            required></textarea>
+                  <div class="invalid-feedback">
+                      <div>The vehiculo's modelo is missing</div>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+                <label for="vehiculoSillas"><b>Sillas</b></label>
+                <textarea soat="vehiculoSillas" class="form-control" id="vehiculoSillas" [(ngModel)]="vehiculo.sillas"
+                          #vehiculoSillas="ngModel" [ngClass]="{ 'is-invalid': vehiculoForm.submitted && vehiculoSillas.invalid }"
+                          required></textarea>
+                <div class="invalid-feedback">
+                    <div>The vehiculo's sillas is missing</div>
+                </div>
+            </div>
+        </div>
+            
+          </div>
+          <div class="row form-inline justify-content-center align-self-center">
+              <button type="submit" class="btn btn-primary">Post vehiculo</button>
+          </div>
+      </form>
+  </div>
+</div>

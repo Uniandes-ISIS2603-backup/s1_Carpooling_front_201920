@@ -5,6 +5,8 @@ import { ConductorListComponent } from './conductor-list/conductor-list.componen
 import { ConductorService } from './conductor.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
+import { ConductorVehiculoComponent } from './conductor-vehiculo/conductor-vehiculo.component';
+import { ConductorAddVehiculoComponent } from './conductor-add-vehiculo/conductor-add-vehiculo.component';
 
 @NgModule({
   imports: [
@@ -12,7 +14,7 @@ import { ConductorDetailComponent } from './conductor-detail/conductor-detail.co
     AppRoutingModule,
     HttpClientModule
   ],
-  declarations: [ConductorListComponent, ConductorDetailComponent],
+  declarations: [ConductorListComponent, ConductorDetailComponent, ConductorVehiculoComponent, ConductorAddVehiculoComponent],
   providers: [ConductorService]
 })
 export class ConductorModule { }
