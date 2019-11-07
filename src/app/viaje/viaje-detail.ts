@@ -1,5 +1,11 @@
-import { Viaje } from './viaje';
+import { Viaje } from './viaje'
+import { Reserva } from './reserva';
+import { Calificacion } from './calificacion';
+import { Trayecto } from './trayecto';
+
 
 export class ViajeDetail extends Viaje{
-  description:string;
+  trayectos:Trayecto[];
+  calificaciones:Calificacion[];
+  reservas:Reserva[];
 } 

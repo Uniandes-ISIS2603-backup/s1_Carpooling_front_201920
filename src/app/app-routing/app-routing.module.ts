@@ -43,8 +43,7 @@ const routes: Routes = [
           },
           {
             path: ':id',
-            component: ViajeDetailComponent,
-            outlet: 'detail'
+            component: ViajeDetailComponent
           }
           ]
     }

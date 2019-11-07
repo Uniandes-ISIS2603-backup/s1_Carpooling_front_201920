@@ -7,5 +7,7 @@
     "cupos": 3,
     "costoViaje":30000,
     "estadoViaje":"TERMINADO",
-    "description":"Este es el viaje 2"
+    "trayectos":[],
+    "calificaciones":[],
+    "reservas":[]
 }
