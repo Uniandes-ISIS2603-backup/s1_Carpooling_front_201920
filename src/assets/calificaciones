@@ -1,0 +1,25 @@
+[
+    {
+
+        "id" = 1,
+        "puntuacion" = 5,
+        "comentarios" = "Buen cliente",
+        "viajero"= {
+  "id": 1,
+	"nombre": "Juan Ballesteros",
+	"telefono": "3114356984",
+	"correo": "s.ballesteros10@uniandes.edu.o",
+	"numDocumento": "12753070",
+	"contrasenha": "jokersito",
+	"fechaDeNacimiento": "1999-11-15T00:00:00-05:00",
+	"tipoDocumento":"CEDULA_DE_CIUDADANA"
+}
+
+
+    }
+
+
+
+
+]
+   
