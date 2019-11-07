@@ -9,7 +9,7 @@
 			<tbody>
 				<tr *ngFor="let i of conductores">
 					<td style="cursor: pointer;">
-						<a class="figure-caption" [routerLink] ="['/conductores', { outlets: { 'detail': [i.id] } }]" >{{i.nombre}}</a>
+						<a class="figure-caption" routerLink="/conductores/{{i.id}}">{{i.nombre}}</a>
 					</td>
 
 				</tr>
