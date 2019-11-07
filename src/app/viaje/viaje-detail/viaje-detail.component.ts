@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ViajeService } from '../viaje.service'
-import { Viaje } from '../viaje';
 import { ViajeDetail } from '../viaje-detail';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Trayecto } from '../trayecto';
 
 @Component({
   selector: 'app-viaje-detail',
@@ -11,10 +12,21 @@ import { ViajeDetail } from '../viaje-detail';
 })
 export class ViajeDetailComponent implements OnInit {
 
+  trayectoForm:FormGroup;
+
   constructor(
     private viajeService:ViajeService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) { 
+    this.trayectoForm=this.formBuilder.group({
+      numPeajes: ["", Validators.required],
+      duracion: ["", Validators.required],
+      costoCombustible: ["", Validators.required],
+      origen: ["", Validators.required],
+      destino: ["", Validators.required]
+    });
+  }
 
   viajeDetail: ViajeDetail;
 
@@ -40,6 +52,13 @@ export class ViajeDetailComponent implements OnInit {
 
   ngOnDestroy() {
     this.loader.unsubscribe();
+  }
+
+  createTrayecto(newTrayecto: Trayecto) {
+    // Process checkout data here
+    console.warn("Your order has been submitted", newTrayecto);
+
+   this.trayectoForm.reset();
   }
 
 }

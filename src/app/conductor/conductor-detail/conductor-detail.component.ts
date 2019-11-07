@@ -18,14 +18,14 @@ export class ConductorDetailComponent implements OnInit {
 
   conductorDetail: ConductorDetail;
 
-  conductor_id: string;
+  conductor_id: number;
 
   getConductorDetail(): void {
     this.conductorService.getConductorDetail(this.conductor_id).subscribe(elDetalle => {this.conductorDetail = elDetalle});
   }
 
   ngOnInit() {
-    this.conductor_id=""+this.route.snapshot.paramMap.get('id');
+    this.conductor_id= +this.route.snapshot.paramMap.get('id');
     this.conductorDetail = new ConductorDetail();
     this.getConductorDetail();
   }
