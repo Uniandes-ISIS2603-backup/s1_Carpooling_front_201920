@@ -4,5 +4,5 @@ export class Trayecto{
     duracion:number;
     costoCombustible:number;
     origen:string;
-    estino:string;
+    destino:string;
 }
