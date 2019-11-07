@@ -6,6 +6,8 @@ import { ViajeDetailComponent } from '../viaje/viaje-detail/viaje-detail.compone
 import { ViajeListComponent } from '../viaje/viaje-list/viaje-list.component'; 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { ViajeroDetailComponent } from '../viajero/viajero-detail/viajero-detail.component';
+import { ViajeroListComponent } from '../viajero/viajero-list/viajero-list.component';
 
 const routes: Routes = [
 
@@ -34,6 +36,19 @@ const routes: Routes = [
             }
         ]
     },
+    {
+        path: 'viajeros',
+        children: [{
+          path: 'list',
+          component: ViajeroListComponent
+        },
+        {
+          path: ':idViajero',
+          component: ViajeroDetailComponent,
+          outlet: 'detail'
+        }
+        ]
+      },
     {
         path: 'viajes',
         children:[
