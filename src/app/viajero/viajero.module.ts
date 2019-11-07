@@ -6,6 +6,7 @@ import { ViajeroListComponent } from './viajero-list/viajero-list.component';
 import { ViajeroService } from './viajero.service';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import {ViajeroCalificacionComponent} from './viajero-calificacion/viajero-calificacion.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [ 
     ViajeroDetailComponent, 
-    ViajeroListComponent],
+    ViajeroListComponent, ViajeroCalificacionComponent],
     providers: [ViajeroService],
     exports:[ViajeroListComponent]
 })

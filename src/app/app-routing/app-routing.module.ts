@@ -8,6 +8,8 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { ViajeroDetailComponent } from '../viajero/viajero-detail/viajero-detail.component';
 import { ViajeroListComponent } from '../viajero/viajero-list/viajero-list.component';
+import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
+import { ConductorListComponent } from '../conductor/conductor-list/conductor-list.component';
 
 const routes: Routes = [
 
@@ -43,9 +45,9 @@ const routes: Routes = [
           component: ViajeroListComponent
         },
         {
-          path: ':idViajero',
+          path: ':id',
           component: ViajeroDetailComponent,
-          outlet: 'detail'
+          runGuardsAndResolvers: 'always'
         }
         ]
       },
@@ -61,7 +63,20 @@ const routes: Routes = [
             component: ViajeDetailComponent
           }
           ]
-    }
+    },
+    {
+      path: 'conductores',
+      children:[
+        {
+          path: 'list',
+          component: ViajeListComponent 
+        },
+        {
+          path: ':id',
+          component: ViajeDetailComponent
+        }
+        ]
+  }
 ];
 
 @NgModule({
