@@ -1,0 +1,18 @@
+<div id="collapseCalificacion" [ngbCollapse]="isCollapsed">
+  <table class="table table-striped">
+      <tbody>
+          <tr *ngFor="let calificacion of conductorCalificacion">
+              <td><span id="conductor-vehiculo"><b>Vehiculo de : </b> <b>{{conductor.nombre}}</b></span>
+                <span>: </span>
+                <br><span id="vehiculo-description"><b> Soat: </b> {{vehiculo.soat}}</span>
+                <br><span id="vehiculo-description"><b> Placa: </b> {{vehiculo.placa}}</span>
+                <br><span id="vehiculo-description"><b> Aseguradora: </b> {{vehiculo.aseguradora}}</span>
+                <br><span id="vehiculo-description"><b> Vigencia Soat: </b> {{vehiculo.vigenciaSoat}}</span>
+                <br><span id="vehiculo-description"><b> Modelo: </b> {{vehiculo.modelo}}</span>
+                <br><span id="vehiculo-description"><b> Numero de sillas:</b> {{vehiculo.sillas}}</span>
+               
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

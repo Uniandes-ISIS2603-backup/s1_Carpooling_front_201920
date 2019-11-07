@@ -1,0 +1,35 @@
+{
+    "id": 1,
+    "destino": "Bogota",
+    "origen":"Santa Marta",
+    "fechaDeSalida":"11/10/2019",
+    "fechaDeLlegada":"12/10/2019",
+    "cupos": 4,
+    "costoViaje":20000,
+    "estadoViaje":"PUBLICADO",
+    "trayectos":[
+        {
+            "origen":"Calle 5 #12-40",
+            "destino":"Carrera 40 #2-30",
+            "duracion":720,
+            "costoCombustible":100000,
+            "numPeajes":14
+        },
+        {
+            "origen":"Calle 7 #12-45",
+            "destino":"Carrera 45 #3-38",
+            "duracion":800,
+            "costoCombustible":100000,
+            "numPeajes":14
+        },
+        {
+            "origen":"Calle 5 #12-40",
+            "destino":"Carrera 40 #2-30",
+            "duracion":720,
+            "costoCombustible":100000,
+            "numPeajes":14
+        }
+    ],
+    "calificaciones":[],
+    "reservas":[]
+}
