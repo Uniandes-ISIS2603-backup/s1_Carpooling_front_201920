@@ -20,7 +20,11 @@ export class ConductorService {
   }
   
   getConductorDetail(conductorId): Observable<ConductorDetail>{
-    return this.http.get<ConductorDetail>(API_URL + "conductor-"+conductorId+".json");
+    return this.http.get<ConductorDetail>(API_URL + "conductor-"+conductorId);
+  }
+
+  createConductor(conductor): Observable<ConductorDetail>{
+    return this.http.post<ConductorDetail>(API_URL+conductores,conductor);
   }
 
   createCalificacion(conductorId, calificacion): Observable<Calificacion> {
