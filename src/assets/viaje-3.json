@@ -1,0 +1,13 @@
+{
+    "id": 3,
+    "destino": "Bucaramanga",
+    "origen":"Cartagena",
+    "fechaDeSalida":"25/9/2020",
+    "fechaDeLlegada":"25/9/2020",
+    "cupos": 2,
+    "costoViaje":37000,
+    "estadoViaje":"PUBLICADO",
+    "trayectos":[],
+    "calificaciones":[],
+    "reservas":[]
+}
