@@ -8,10 +8,6 @@ import { ConductorDetailComponent } from './conductor-detail/conductor-detail.co
 import { ConductorVehiculoComponent } from './conductor-vehiculo/conductor-vehiculo.component';
 import { ConductorAddVehiculoComponent } from './conductor-add-vehiculo/conductor-add-vehiculo.component';
 import { CreateConductorComponent } from './create-conductor/create-conductor.component';
-import { ViajeRecurrenteComponent } from './viaje-recurrente/viaje-recurrente.component';
-import { ConductorViajeRecurrenteComponent } from './conductor-viaje-recurrente/conductor-viaje-recurrente.component';
-import { ConductorAddViajeRecurrenteComponent } from './conductor-add-viaje-recurrente/conductor-add-viaje-recurrente.component';
-import { ConductorViajeRecurrenteDetailComponent } from './conductor-viaje-recurrente-detail/conductor-viaje-recurrente-detail.component';
 
 @NgModule({
   imports: [
@@ -19,7 +15,7 @@ import { ConductorViajeRecurrenteDetailComponent } from './conductor-viaje-recur
     AppRoutingModule,
     HttpClientModule
   ],
-  declarations: [ConductorListComponent, ConductorDetailComponent, ConductorVehiculoComponent, ConductorAddVehiculoComponent, CreateConductorComponent, ViajeRecurrenteComponent, ConductorViajeRecurrenteComponent, ConductorAddViajeRecurrenteComponent, ConductorViajeRecurrenteDetailComponent],
+  declarations: [ConductorListComponent, ConductorDetailComponent, ConductorVehiculoComponent, ConductorAddVehiculoComponent, CreateConductorComponent],
   providers: [ConductorService]
 })
 export class ConductorModule { }
