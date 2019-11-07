@@ -1,10 +1,11 @@
-export interface ViajeDetail {
-  id: number;
-  destino: string;
-  origen: string;
-  fechaDeSalida: string;
-  fechaDeLlegada: string;
-  cupos: number;
-  costoViaje: number;
-  estadoViaje: string;
+import { Viaje } from './viaje'
+import { Reserva } from './reserva';
+import { Calificacion } from './calificacion';
+import { Trayecto } from './trayecto';
+
+
+export class ViajeDetail extends Viaje{
+  trayectos:Trayecto[];
+  calificaciones:Calificacion[];
+  reservas:Reserva[];
 } 
