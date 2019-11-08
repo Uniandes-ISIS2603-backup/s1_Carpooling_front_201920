@@ -6,5 +6,5 @@ export class Usuario {
   correo: string;
   contrasenha: string;
   tipoDocumento: TipoDeDocumento;
-
+  numDocumento: string;
 }
