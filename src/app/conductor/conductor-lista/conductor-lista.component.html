@@ -1,0 +1,21 @@
+<div class = "container-fluid">
+  <div class="row">
+    <div class = "col">
+      <table class="table table-striped">
+        <tbody>
+          <tr *ngFor= "let c of conductores">
+            <td style= "cursor: pointer">
+              <dd (click)="onSelected(c.id)" routerLinkActive="active-link">{{c.nombre}}</dd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <div *ngIf="selectedConductor" class="m-3 p-3">
+        <app-conductor-detail [conductorDetail]="selectedConductor"></app-conductor-detail>
+      </div>
+    </div>
+  </div>
+</div> 
