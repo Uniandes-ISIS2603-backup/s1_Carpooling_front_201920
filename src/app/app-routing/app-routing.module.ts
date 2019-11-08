@@ -9,7 +9,7 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { ViajeroDetailComponent } from '../viajero/viajero-detail/viajero-detail.component';
 import { ViajeroListComponent } from '../viajero/viajero-list/viajero-list.component';
 import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
-import { ConductorListComponent } from '../conductor/conductor-list/conductor-list.component';
+import { ConductorListaComponent } from '../conductor/conductor-lista/conductor-lista.component';
 
 const routes: Routes = [
 
@@ -65,18 +65,12 @@ const routes: Routes = [
           ]
     },
     {
-      path: 'conductores',
-      children:[
-        {
-          path: 'list',
-          component: ViajeListComponent 
-        },
-        {
-          path: ':id',
-          component: ViajeDetailComponent
-        }
+        path: "conductores",
+        children: [
+          { path: "list", component: ConductorListaComponent },
+          { path: ":id", component: ConductorDetailComponent }
         ]
-  }
+      }
 ];
 
 @NgModule({
