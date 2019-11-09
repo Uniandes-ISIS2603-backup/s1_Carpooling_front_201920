@@ -1,4 +1,4 @@
-import { TipoDeDocumento } from './tipo-de-documento';
+import { TipoDeDocumento } from './tipo-de-documento.enum';
 
 
 export class Usuario {
