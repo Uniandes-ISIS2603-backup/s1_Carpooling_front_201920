@@ -27,7 +27,17 @@ export class ConductorListaComponent implements OnInit {
     this.conductorService.getConductores().subscribe(conductores => this.conductores = conductores);
   }
 
- 
+  mostrarForm: boolean = false;
+
+  mostrarFormulario(): void{
+    console.log("mostrar form es: "+this.mostrarForm);
+    this.mostrarForm = true;
+    console.log("mostrar form es: "+this.mostrarForm);
+  }
+  ocultarFormulario(): void{
+    this.mostrarForm = false;
+    console.log("mostrar form es: "+this.mostrarForm);
+  }
 
   ngOnInit() {
     this.getConductores();

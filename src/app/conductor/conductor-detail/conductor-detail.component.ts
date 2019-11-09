@@ -23,9 +23,9 @@ export class ConductorDetailComponent implements OnInit {
 
   conductor_id: number;
 
-  getConductorDetail(): void{
+  /*getConductorDetail(): void{
     this.conductorService.getConductorDetail(this.conductor_id).subscribe(conductorDetail => {this.conductorDetail = conductorDetail});
-  }
+  }*/
 
   ngOnInit() {
   }
