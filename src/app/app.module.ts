@@ -45,7 +45,8 @@ import { ConductorModule} from './conductor/conductor.module';
         ViajeModule,
         ViajeroModule,
         ReservaModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ConductorModule
     ],
     bootstrap: [AppComponent],
     providers: [
