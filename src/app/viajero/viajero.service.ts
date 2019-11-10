@@ -34,8 +34,7 @@ export class ViajeroService {
     * @returns The editorial
     */
     getViajeroDetail(viajeroId): Observable<ViajeroDetail> {
-      console.log(viajeroId+" "+API_URL + "viajero-" + viajeroId+".json");
-        return this.http.get<ViajeroDetail>(API_URL + "viajero-" + viajeroId+".json");
+        return this.http.get<ViajeroDetail>(API_URL + viajeros + '/'+ viajeroId);
     }
     
     createCalificacion(viajeroId, calificacion): Observable<Calificacion> {

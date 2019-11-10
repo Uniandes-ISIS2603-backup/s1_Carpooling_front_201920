@@ -4,7 +4,7 @@
 			<table class="table table-striped">
 				<thead class="thead-dark">
 					<tr>
-						<th>Calificaciones</th>
+						<th>Ver Detalle</th> 
 						<th>Nombre</th>
 						<th>correo</th>
 						<th>Numero De Documento</th>
@@ -17,8 +17,7 @@
 				<tbody>
 					<tr *ngFor="let i of viajeros">
 						<td style="cursor: pointer;">
-							<button routerLink="/viajeros/{{i.id}}" routerLinkActive="active">Calificaciones y
-								más</button>
+							<a routerLink="/viajeros/{{i.id}}" routerLinkActive="activeLink"><button>detalle</button></a>
 						</td>
 
 						<td style="cursor: pointer;">

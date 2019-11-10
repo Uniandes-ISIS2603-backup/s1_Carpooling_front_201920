@@ -2,6 +2,9 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
+import { TIPODEDOCUMENTO } from './tipo-de-documento.enum';
+
+
 export class Viajero {
     /**
     * The editorial's id
@@ -41,7 +44,7 @@ export class Viajero {
         /**
     * The editorial's name
     */
-    tipoDocumento: string;
+    tipoDocumento: TIPODEDOCUMENTO;
   
 
 }
