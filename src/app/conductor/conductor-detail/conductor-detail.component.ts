@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { OnInit, OnChanges, Component, Input, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { ConductorService } from '../conductor.service';
-import { Conductor } from '../conductor';
 import { ConductorDetail } from '../conductor-detail';
+import { Conductor } from '../conductor';
+
 
 @Component({
   selector: 'app-conductor-detail',
@@ -10,24 +12,22 @@ import { ConductorDetail } from '../conductor-detail';
   styleUrls: ['./conductor-detail.component.css']
 })
 export class ConductorDetailComponent implements OnInit {
+  
+  @Input() conductorDetail: ConductorDetail;
+  public isCollapsed = true;
 
   constructor(
-    private conductorService: ConductorService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private conductorService: ConductorService
   ) { }
-
-  conductorDetail: ConductorDetail;
 
   conductor_id: number;
 
-  getConductorDetail(): void {
-    this.conductorService.getConductorDetail(this.conductor_id).subscribe(elDetalle => {this.conductorDetail = elDetalle});
-  }
+  /*getConductorDetail(): void{
+    this.conductorService.getConductorDetail(this.conductor_id).subscribe(conductorDetail => {this.conductorDetail = conductorDetail});
+  }*/
 
   ngOnInit() {
-    this.conductor_id= +this.route.snapshot.paramMap.get('id');
-    this.conductorDetail = new ConductorDetail();
-    this.getConductorDetail();
   }
 
 }

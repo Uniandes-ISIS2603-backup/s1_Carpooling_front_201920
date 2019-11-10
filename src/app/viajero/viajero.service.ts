@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Viajero } from './viajero';
 import { ViajeroDetail } from './viajero-detail';
 import { Observable } from 'rxjs';
+import {Calificacion} from './calificacion';
 
 const API_URL = "../../assets/";
 const viajeros = 'viajeros';
-
+const calificaciones = 'calificaciones';
 /**
 * The service provider for everything related to editorials
 */
@@ -35,5 +36,8 @@ export class ViajeroService {
         return this.http.get<ViajeroDetail>(API_URL + "viajero-" + viajeroId+".json");
     }
     
+    createCalificacion(viajeroId, calificacion): Observable<Calificacion> {
+      return this.http.post<Calificacion>(API_URL + viajeros + '/' + viajeroId + calificaciones, calificacion);
+    }
     
 }

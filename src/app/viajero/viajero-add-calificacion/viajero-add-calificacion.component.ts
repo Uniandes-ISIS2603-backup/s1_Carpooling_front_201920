@@ -4,21 +4,21 @@ import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 
 import { Calificacion } from '../calificacion';
-import { ConductorService } from '../conductor.service';
-import { Conductor } from '../../conductor/conductor';
+import { ViajeroService } from '../viajero.service';
+import { Viajero } from '../../viajero/viajero';
 @Component({
-  selector: 'app-conductor-add-calificacion',
-  templateUrl: './conductor-add-calificacion.component.html',
-  styleUrls: ['./conductor-add-calificacion.component.css']
+  selector: 'app-viajero-add-calificacion',
+  templateUrl: './viajero-add-calificacion.component.html',
+  styleUrls: ['./viajero-add-calificacion.component.css']
 })
-export class ConductorAddCalificacionComponent implements OnInit, OnChanges  {
+export class ViajeroAddCalificacionComponent implements OnInit, OnChanges  {
 
-  constructor(private conductorService: ConductorService,
+  constructor(private viajeroService: ViajeroService,
     private toastrService: ToastrService) 
     {
      }
 
-     @Input() conductor: Conductor;
+     @Input() viajero: Viajero;
 
      calificacion : Calificacion;
      public isCollapsed = true;
@@ -27,8 +27,8 @@ export class ConductorAddCalificacionComponent implements OnInit, OnChanges  {
      @Output() updateReviews = new EventEmitter();
 
      postCalificacion(calificacionForm: NgForm): Calificacion {
-      this.calificacion.conductor = this.conductor;
-      this.conductorService.createCalificacion(this.conductor.id,this.calificacion)
+      this.calificacion.viajero = this.viajero;
+      this.viajeroService.createCalificacion(this.viajero.id,this.calificacion)
           .subscribe(() => {
               calificacionForm.resetForm();
               this.updateReviews.emit();

@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { ReservaModule } from './reserva/reserva.module';
 import { ViajeroModule } from './viajero/viajero.module';
+import { ConductorModule} from './conductor/conductor.module';
 
 
 
@@ -44,7 +45,8 @@ import { ViajeroModule } from './viajero/viajero.module';
         ViajeModule,
         ViajeroModule,
         ReservaModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ConductorModule
     ],
     bootstrap: [AppComponent],
     providers: [

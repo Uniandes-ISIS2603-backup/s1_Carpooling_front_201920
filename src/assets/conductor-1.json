@@ -1,0 +1,9 @@
+{
+  "nombre": "Pedro",
+  "id": 1,
+  "telefono": "3123234358",
+  "correo": "pedro@gmail.com",
+  "contrasenha": "soyPedro",
+  "tipoDocumento": "CEDULA_DE_CIUDADANIA",
+  "numDocumento": 1025934036
+}

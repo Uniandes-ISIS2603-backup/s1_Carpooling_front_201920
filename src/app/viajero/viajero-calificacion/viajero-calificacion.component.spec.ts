@@ -1,29 +1,29 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
-import { ConductorVehiculoComponent } from './conductor-vehiculo.component';
+import { ViajeroCalificacionComponent } from './viajero-calificacion.component';
 import {ActivatedRoute, convertToParamMap} from '@angular/router';
 import {AppRoutingModule} from '../../app-routing/app-routing.module';
 import {AppModule} from '../../app.module';
-import {ConductorService} from '../conductor.service';
-import {Conductor} from '../conductor';
-import {Vehiculo} from '../vehiculo';
+import {ViajeroService} from '../viajero.service';
+import {Viajero} from '../viajero';
+import {Calificacion} from '../calificacion';
 
-describe('ConductorVehiculoComponent', () => {
-  let component: ConductorVehiculoComponent;
-  let fixture: ComponentFixture<ConductorVehiculoComponent>;
+describe('ViajeroCalificacionComponent', () => {
+  let component: ViajeroCalificacionComponent;
+  let fixture: ComponentFixture<ViajeroCalificacionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppRoutingModule, HttpClientModule, AppModule],
-      declarations: [ ConductorVehiculoComponent ],
-      providers :[{provide: APP_BASE_HREF, useValue: ''}, ConductorService]
+      declarations: [ ViajeroCalificacionComponent ],
+      providers :[{provide: APP_BASE_HREF, useValue: ''}, ViajeroService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConductorVehiculoComponent);
+    fixture = TestBed.createComponent(ViajeroCalificacionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
