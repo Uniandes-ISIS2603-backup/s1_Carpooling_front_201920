@@ -1,6 +1,14 @@
 <div class="container-fluid">
+		
+	<div class="row justify-content-center align-self-center" >
+			<button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+				(click)="showHideCreate()">Crear un viajero</button>
+		</div>
+		<br>
+		<br>
 	<div class="row">
 		<div class="col">
+				
 			<table class="table table-striped">
 				<thead class="thead-dark">
 					<tr>
@@ -45,5 +53,13 @@
 					</tr>
 				</tbody>
 			</table>
+			
+		</div>	
+			<div class="col-8">
+					<div *ngIf="showCreate">
+						<app-viajero-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-viajero-create>
+					</div>
+				</div> 
+
 		</div>
 	</div>

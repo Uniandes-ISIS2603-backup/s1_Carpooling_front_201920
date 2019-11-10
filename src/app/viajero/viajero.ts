@@ -39,7 +39,7 @@ export class Viajero {
         /**
     * The editorial's name
     */
-    fechaDeNacimiento: Date;
+    fechaDeNacimiento: any;
 
         /**
     * The editorial's name

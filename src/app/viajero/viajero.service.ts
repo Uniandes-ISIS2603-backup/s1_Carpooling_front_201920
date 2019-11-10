@@ -37,6 +37,15 @@ export class ViajeroService {
         return this.http.get<ViajeroDetail>(API_URL + viajeros + '/'+ viajeroId);
     }
     
+    /**
+    * Creates an author
+    * @param viajero The new author
+    * @returns The new author with the new id
+    */
+   createViajero(viajero): Observable<Viajero> {
+    return this.http.post<Viajero>(API_URL + viajeros, viajero);
+}
+
     createCalificacion(viajeroId, calificacion): Observable<Calificacion> {
       return this.http.post<Calificacion>(API_URL + viajeros + '/' + viajeroId + calificaciones, calificacion);
     }
