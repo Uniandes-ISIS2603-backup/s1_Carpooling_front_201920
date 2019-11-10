@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { ReservaModule } from './reserva/reserva.module';
 import { ViajeroModule } from './viajero/viajero.module';
+import { PublicistaModule } from './publicista/publicista.module';
 import { ConductorModule} from './conductor/conductor.module';
 
 
@@ -45,6 +46,7 @@ import { ConductorModule} from './conductor/conductor.module';
         NgbModule,
         ViajeModule,
         ViajeroModule,
+        PublicistaModule,
         ReservaModule,
         ReactiveFormsModule,
         ConductorModule
