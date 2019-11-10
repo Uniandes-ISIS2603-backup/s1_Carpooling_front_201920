@@ -23,10 +23,14 @@ export class ConductorCreateComponent implements OnInit {
       numDocumento: ["", [Validators.required, Validators.minLength(7)]],
       tipoDocumento: ["", [Validators.required]],
       correo: ["", [Validators.required]],
+      otraFecha: ["", [Validators.required]],
       contrasenha: ["", [Validators.required]
       ]
     
     });
+  }
+  ajustarFecha(): void {
+    this.elConductor.fechaDeNacimiento = this.elConductor.otraFecha + "T00:00:00-05:00";
   }
   elConductor: Conductor;
   createConductor(nuevoConductor: Conductor): void {
@@ -39,6 +43,9 @@ export class ConductorCreateComponent implements OnInit {
     this.elConductor.numDocumento = nuevoConductor.numDocumento;
     this.elConductor.fechaDeNacimiento = "1970-11-03T00:00:00-05:00";
     this.elConductor.tipoDocumento = nuevoConductor.tipoDocumento;
+    this.elConductor.otraFecha = nuevoConductor.otraFecha;
+    this.ajustarFecha();
+  
     console.warn("Se agrega el conductor", this.elConductor);
     this.conductorService
       .createConductor(this.elConductor, this.elConductor.id)

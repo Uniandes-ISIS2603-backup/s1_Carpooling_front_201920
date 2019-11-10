@@ -27,7 +27,12 @@ export class ConductorListaComponent implements OnInit {
   getConductores(): void{
     this.conductorService.getConductores().subscribe(conductores => this.conductores = conductores);
   }
-
+  
+  ajustarFechas(): void{
+    for(const conductor of this.conductores){
+      conductor.ponerOtraFecha();
+    }
+  }
   mostrarDetalle: boolean = false;
   mostrarForm: boolean = false;
 
@@ -47,6 +52,7 @@ export class ConductorListaComponent implements OnInit {
 
   ngOnInit() {
     this.getConductores();
+    this.ajustarFechas();
   }
 
 }
