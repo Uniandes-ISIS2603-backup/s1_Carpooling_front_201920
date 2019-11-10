@@ -47,14 +47,14 @@ const routes: Routes = [
           component: ViajeroListComponent
         },
         {
-          path: ':id',
+          path: ':idViajero',
           component: ViajeroDetailComponent,
-          runGuardsAndResolvers: 'always'
+          outlet: 'detail'
         }
         ]
       },
       {
-        path: 'Notificaciones',
+        path: 'notificaciones',
         children: [{
           path: 'list',
           component: NotificacionListComponent
@@ -62,7 +62,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'Reservas',
+        path: 'reservas',
         children: [{
           path: 'list',
           component: ReservaListComponent
@@ -81,14 +81,7 @@ const routes: Routes = [
             component: ViajeDetailComponent
           }
           ]
-    },
-    {
-        path: "conductores",
-        children: [
-          { path: "list", component: ConductorListaComponent },
-          { path: ":id", component: ConductorDetailComponent }
-        ]
-      }
+    }
 ];
 
 @NgModule({
