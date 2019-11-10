@@ -1,11 +1,5 @@
 <div class="container-fluid">
 		
-	<div class="row justify-content-center align-self-center" >
-			<button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-				(click)="showHideCreate()">Crear un viajero</button>
-		</div>
-		<br>
-		<br>
 	<div class="row">
 		<div class="col">
 				
@@ -53,7 +47,12 @@
 					</tr>
 				</tbody>
 			</table>
-			
+			<div class="row justify-content-center align-self-center" >
+					<button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+						(click)="showHideCreate()">Crear un viajero</button>
+				</div>
+				<br>
+				<br>
 		</div>	
 			<div class="col-8">
 					<div *ngIf="showCreate">
