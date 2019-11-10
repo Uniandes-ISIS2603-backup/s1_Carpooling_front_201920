@@ -18,6 +18,7 @@ export class ConductorListaComponent implements OnInit {
   conductores: Conductor[];
 
   onSelected(conductor_id: number): void{
+    this.cambioDetalle();
     this.conductor_id = conductor_id;
     this.selectedConductor = new ConductorDetail();
     this.conductorService.getConductorDetail(conductor_id).subscribe(o => this.selectedConductor = o);
@@ -26,7 +27,13 @@ export class ConductorListaComponent implements OnInit {
   getConductores(): void{
     this.conductorService.getConductores().subscribe(conductores => this.conductores = conductores);
   }
-
+  
+  ajustarFechas(): void{
+    for(const conductor of this.conductores){
+      conductor.ponerOtraFecha();
+    }
+  }
+  mostrarDetalle: boolean = false;
   mostrarForm: boolean = false;
 
   mostrarFormulario(): void{
@@ -39,8 +46,13 @@ export class ConductorListaComponent implements OnInit {
     console.log("mostrar form es: "+this.mostrarForm);
   }
 
+  cambioDetalle(): void {
+    this.mostrarDetalle = !this.mostrarDetalle;
+  }
+
   ngOnInit() {
     this.getConductores();
+    this.ajustarFechas();
   }
 
 }
