@@ -5,8 +5,10 @@ import { ViajeroDetail } from './viajero-detail';
 import { Observable } from 'rxjs';
 import {Calificacion} from './calificacion';
 
-const API_URL = "../../assets/";
-const viajeros = 'viajeros';
+import {environment} from '../../environments/environment';
+
+const API_URL = environment.apiURL;
+const viajeros = '/viajeros';
 const calificaciones = 'calificaciones';
 /**
 * The service provider for everything related to editorials
