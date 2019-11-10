@@ -13,6 +13,16 @@
             <div>El nombre del viajero no es valido</div>
           </div>
         </div>
+
+<!-- Esto funciona pero no como se supone-->
+          <div class="form-group">
+            <label for="viajeroFecha"><b>Fecha de Nacimiento</b></label>
+            <input type="text" name="viajeroFecha" class="form-control" id="viajeroFecha" [(ngModel)]="viajero.fechaDeNacimiento"
+              #viajeroNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && viajeroFecha.invalid }" required>
+            <div class="invalid-feedback">
+              <div>La fecha de Nacimiento del viajero no es valido</div>
+            </div>
+          </div>
         <!--
         <div class="form-group">
           <label for="viajeroBDate"><b>Fecha de Nacimiento</b></label>
@@ -44,9 +54,9 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="viajeroTipoDeDocumento"><b>Tipo de Documento</b></label>
+          <label for="viajeroTipoDeDocumento"><b>Tipo de Documento</b></label>CEDULA
           <input type="text" name="viajeroTipoDeDocumento" class="form-control" id="viajeroTipoDeDocumento"
-            [(ngModel)]="viajero.tipoDeDocumento" #viajeroTipoDeDocumento="ngModel"
+            [(ngModel)]="viajero.tipoDocumento" #viajeroTipoDeDocumento="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && viajeroTipoDeDocumento.invalid }" required>
           <div class="invalid-feedback">
             <div>El tipo de documento del viajero no es valido</div>
