@@ -47,9 +47,20 @@ const routes: Routes = [
           component: ViajeroListComponent
         },
         {
-          path: ':idViajero',
-          component: ViajeroDetailComponent,
-          outlet: 'detail'
+          path: ':id',
+          component: ViajeroDetailComponent
+        }
+        ]
+      },
+      {
+        path: 'conductores',
+        children: [{
+          path: 'list',
+          component: ConductorListaComponent 
+        },
+        {
+          path: ':id',
+          component: ConductorDetailComponent
         }
         ]
       },
@@ -82,6 +93,7 @@ const routes: Routes = [
           }
           ]
     }
+
 ];
 
 @NgModule({
