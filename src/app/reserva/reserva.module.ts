@@ -7,7 +7,7 @@ import { ReservaService } from './reserva.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 //import { AppRoutingModule } from '../app-routing/app-routing.module';
-import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
+//import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
 import { ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule
 
   ],
-  declarations: [ReservaListComponent, ReservaDetailComponent, ReservaCreateComponent], 
+  declarations: [ReservaListComponent, ReservaDetailComponent], 
   exports: [ReservaListComponent],
   providers: [ ReservaService]
 })
