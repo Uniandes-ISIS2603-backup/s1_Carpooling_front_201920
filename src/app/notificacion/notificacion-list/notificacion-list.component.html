@@ -1,0 +1,22 @@
+<div class="container-fluid">
+	<div class="col-md-2">
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Notificaciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor=" let i of notificaciones">
+					<td style="cursor: pointer;">
+						
+
+						<b>{{i.titulo}}</b> {{i.fecha}}  id: {{i.id}}
+            <br/>
+						{{i.mensaje}}
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>

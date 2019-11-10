@@ -1,0 +1,11 @@
+<form [formGroup]="reservaForm" (ngSubmit)="createReserva(reservaForm.value)">
+<div class="card">
+	<div class="card-body">
+   <b> Reservar:</b>
+		<input type="text" class="form-control" placeholder="Username"/>
+    <input type="text" class="form-control" placeholder="Fecha"/>
+		<div>
+			<button class="btn btn-primary" type="submit" >confirmar</button>     
+		</div>
+	</div>
+</div>
