@@ -39,9 +39,9 @@ export class ViajeroCreateComponent implements OnInit {
     */
    createViajero(): Viajero {
 
-    let dateB: Date = new Date(this.viajero.fechaDeNacimiento.year, this.viajero.fechaDeNacimiento.month - 1, this.viajero.fechaDeNacimiento.day);
+   // let dateB: Date = new Date(this.viajero.fechaDeNacimiento.year, this.viajero.fechaDeNacimiento.month - 1, this.viajero.fechaDeNacimiento.day);
 
-    this.viajero.fechaDeNacimiento = this.dp.transform(dateB, 'yyyy-MM-dd');
+    //this.viajero.fechaDeNacimiento = this.dp.transform(dateB, 'yyyy-MM-dd');
     console.log(this.viajero);
     this.viajeroService.createViajero(this.viajero)
         .subscribe((viajero) => {
