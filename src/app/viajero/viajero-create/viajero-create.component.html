@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-6">
+    <br>
+    <h2 class="text-center">Crear un Viajero</h2>
+    <br>
+ 
+    <form name="viajero" (ngSubmit)="f.form.valid && createViajero()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="viajeroNombre"><b>Nombre</b></label>
+          <input type="text" name="viajeroNombre" class="form-control" id="viajeroNombre" [(ngModel)]="viajero.nombre"
+            #viajeroNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && viajeroNombre.invalid }" required>
+          <div class="invalid-feedback">
+            <div>El nombre del viajero no es valido</div>
+          </div>
+        </div>
+        <!--
+        <div class="form-group">
+          <label for="viajeroBDate"><b>Fecha de Nacimiento</b></label>
+          <div [ngClass]="{ 'is-invalid': f.submitted && viajeroBDate.invalid }">
+            <input class="form-control" id="viajeroBDate" name="viajeroBDate" [(ngModel)]="viajero.fechaDeNacimiento"
+              ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #viajeroBDate="ngModel"
+              [ngClass]="{'is-invalid': f.submitted && (viajeroBDate.untouched || viajeroBDate.invalid) }" required>
+            <div class="invalid-feedback">
+              <div>La fecha de Nacimiento del viajero es invalida</div>
+            </div>
+          </div>
+        </div> 
+      -->
+        <div class="form-group">
+          <label for="viajeroCorreo"><b>Correo</b></label>
+          <input type="text" name="viajeroCorreo" class="form-control" id="viajeroCorreo" [(ngModel)]="viajero.correo"
+            #viajeroCorreo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && viajeroCorreo.invalid }" required>
+          <div class="invalid-feedback">
+            <div>El correo del viajero no es valido</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="viajeroTelefono"><b>Telefono</b></label>
+          <input type="text" name="viajeroTelefono" class="form-control" id="viajeroTelefono"
+            [(ngModel)]="viajero.telefono" #viajeroTelefono="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && viajeroTelefono.invalid }" required>
+          <div class="invalid-feedback">
+            <div>El telefono del viajero no es valido</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="viajeroTipoDeDocumento"><b>Tipo de Documento</b></label>
+          <input type="text" name="viajeroTipoDeDocumento" class="form-control" id="viajeroTipoDeDocumento"
+            [(ngModel)]="viajero.tipoDeDocumento" #viajeroTipoDeDocumento="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && viajeroTipoDeDocumento.invalid }" required>
+          <div class="invalid-feedback">
+            <div>El tipo de documento del viajero no es valido</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="viajeroNumDocumento"><b>Numero de Documento</b></label>
+          <input type="text" name="viajeroNumDocumento" class="form-control" id="viajeroNumDocumento"
+            [(ngModel)]="viajero.numDocumento" #viajeroNumDocumento="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && viajeroNumDocumento.invalid }" required>
+          <div class="invalid-feedback">
+            <div>El numero de documento del viajero no es valido</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="viajeroContrasenha"><b>Contraseña</b></label>
+          <input type="text" name="viajeroContrasenha" class="form-control" id="viajeroContrasenha"
+            [(ngModel)]="viajero.contrasenha" #viajeroContrasenha="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && viajeroContrasenha.invalid }" required>
+          <div class="invalid-feedback">
+            <div>La contraseña del viajero no es valida</div>
+          </div>
+        </div>
+  
+  
+  
+        <div class="row form-inline justify-content-center align-self-center">
+          <button type="submit" class="btn btn-primary">Create</button>
+          <div class="divider"></div>
+          <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+      </div>
+      </form>
+  </div>
+</div>

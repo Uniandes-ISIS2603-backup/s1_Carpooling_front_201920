@@ -5,8 +5,10 @@ import { ViajeroDetail } from './viajero-detail';
 import { Observable } from 'rxjs';
 import {Calificacion} from './calificacion';
 
-const API_URL = "../../assets/";
-const viajeros = 'viajeros';
+import {environment} from '../../environments/environment';
+
+const API_URL = environment.apiURL;
+const viajeros = '/viajeros';
 const calificaciones = 'calificaciones';
 /**
 * The service provider for everything related to editorials
@@ -32,10 +34,18 @@ export class ViajeroService {
     * @returns The editorial
     */
     getViajeroDetail(viajeroId): Observable<ViajeroDetail> {
-      console.log(viajeroId+" "+API_URL + "viajero-" + viajeroId+".json");
-        return this.http.get<ViajeroDetail>(API_URL + "viajero-" + viajeroId+".json");
+        return this.http.get<ViajeroDetail>(API_URL + viajeros + '/'+ viajeroId);
     }
     
+    /**
+    * Creates an author
+    * @param viajero The new author
+    * @returns The new author with the new id
+    */
+   createViajero(viajero): Observable<Viajero> {
+    return this.http.post<Viajero>(API_URL + viajeros, viajero);
+}
+
     createCalificacion(viajeroId, calificacion): Observable<Calificacion> {
       return this.http.post<Calificacion>(API_URL + viajeros + '/' + viajeroId + calificaciones, calificacion);
     }

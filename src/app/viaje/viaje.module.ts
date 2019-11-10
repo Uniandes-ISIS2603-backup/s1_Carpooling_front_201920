@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { ViajeTrayectosComponent } from './viaje-trayectos/viaje-trayectos.component';
 import { ViajeAddTrayectoComponent } from './viaje-add-trayecto/viaje-add-trayecto.component'
 import { ReactiveFormsModule} from '@angular/forms';
+import { ReservaCreateComponent } from '../reserva/reserva-create/reserva-create.component';
+
 
 
 @NgModule({
@@ -17,8 +19,8 @@ import { ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [ViajeListComponent, ViajeDetailComponent, ViajeTrayectosComponent, ViajeAddTrayectoComponent],
-  exports:[ViajeListComponent, ViajeAddTrayectoComponent],
+  declarations: [ViajeListComponent, ViajeDetailComponent, ViajeTrayectosComponent, ViajeAddTrayectoComponent, ReservaCreateComponent],
+  exports:[ViajeListComponent, ViajeAddTrayectoComponent, ReservaCreateComponent],
   providers: [ViajeService]
 })
 export class ViajeModule { } 

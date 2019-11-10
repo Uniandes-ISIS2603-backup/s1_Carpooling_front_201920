@@ -8,6 +8,8 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { ViajeroDetailComponent } from '../viajero/viajero-detail/viajero-detail.component';
 import { ViajeroListComponent } from '../viajero/viajero-list/viajero-list.component';
+import { NotificacionListComponent} from '../notificacion/notificacion-list/notificacion-list.component';
+import { ReservaListComponent } from '../reserva/reserva-list/reserva-list.component';
 import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
 import { ConductorListaComponent } from '../conductor/conductor-lista/conductor-lista.component';
 
@@ -46,8 +48,35 @@ const routes: Routes = [
         },
         {
           path: ':id',
-          component: ViajeroDetailComponent,
-          runGuardsAndResolvers: 'always'
+          component: ViajeroDetailComponent
+        }
+        ]
+      },
+      {
+        path: 'conductores',
+        children: [{
+          path: 'list',
+          component: ConductorListaComponent 
+        },
+        {
+          path: ':id',
+          component: ConductorDetailComponent
+        }
+        ]
+      },
+      {
+        path: 'notificaciones',
+        children: [{
+          path: 'list',
+          component: NotificacionListComponent
+        }
+        ]
+      },
+      {
+        path: 'reservas',
+        children: [{
+          path: 'list',
+          component: ReservaListComponent
         }
         ]
       },
@@ -63,14 +92,8 @@ const routes: Routes = [
             component: ViajeDetailComponent
           }
           ]
-    },
-    {
-        path: "conductores",
-        children: [
-          { path: "list", component: ConductorListaComponent },
-          { path: ":id", component: ConductorDetailComponent }
-        ]
-      }
+    }
+
 ];
 
 @NgModule({
