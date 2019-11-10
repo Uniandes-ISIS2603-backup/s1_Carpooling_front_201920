@@ -56,7 +56,7 @@ const routes: Routes = [
         path: 'conductores',
         children: [{
           path: 'list',
-          component: ConductorListaComponent
+          component: ConductorListaComponent 
         },
         {
           path: ':id',
