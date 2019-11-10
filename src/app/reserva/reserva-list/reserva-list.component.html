@@ -1,16 +1,34 @@
 <div class="container-fluid">
-  <div class="col-md-2">
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>Reserva List Primitive</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
+	<div class="col-md-2">
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>#</th>
+          <th>numero de reserva</th>
+          <th>confirmacion</th>
+          <th>fecha</th>
+          <th>estado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor=" let i of reservas">
+					<td style="cursor: pointer;">
+						{{i.id}}
+					</td>
+					<td>
+						{{i.numeroDeReserva}}
+					</td>
+					<td>
+						{{i.confirmacion}}
+					</td>
+					<td>
+						{{i.fecha}}
+					</td>
+					<td>
+						{{i.estado}}
+					</td>
 
-        </tr>
-      </tbody>
-    </table>
-  </div>
+				</tr>
+			</tbody>
+		</table>
+	</div>

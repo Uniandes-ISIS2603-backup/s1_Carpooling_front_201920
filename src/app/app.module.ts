@@ -17,7 +17,7 @@ import { AuthModule } from './auth/auth.module';
 import { ReservaModule } from './reserva/reserva.module';
 import { ViajeroModule } from './viajero/viajero.module';
 import { ConductorModule} from './conductor/conductor.module';
-
+import { NotificacionModule} from './notificacion/notificacion.module';
 
 
 
@@ -45,7 +45,9 @@ import { ConductorModule} from './conductor/conductor.module';
         ViajeModule,
         ViajeroModule,
         ReservaModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ConductorModule,
+        NotificacionModule
     ],
     bootstrap: [AppComponent],
     providers: [

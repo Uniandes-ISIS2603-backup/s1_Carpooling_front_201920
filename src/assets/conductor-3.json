@@ -1,0 +1,9 @@
+{
+  "nombre": "Juan",
+  "id": 3,
+  "telefono": "3457648937",
+  "correo": "juan@gmail.com",
+  "contrasenha": "soyJuan",
+  "tipoDocumento": "TARJETA_DE_IDENTIDAD",
+  "numDocumento": 91292059
+}
