@@ -28,6 +28,11 @@ export class ViajeroListComponent implements OnInit {
    */
   viajeros: Viajero[];
 
+      /**
+    * Shows or hides the author-create-component
+    */
+   showCreate: boolean;
+
   /**
    * Asks the service to update the list of editorials
    */
@@ -38,16 +43,25 @@ export class ViajeroListComponent implements OnInit {
 
 
   onSelected(viajero_id: number): void {
+    this.showCreate = false;
     this.viajero_id = viajero_id;
     this.selectedViajero = new ViajeroDetail();
     this.viajeroService.getViajeroDetail(viajero_id).subscribe(o => this.selectedViajero = o);
   }
+
+    /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showCreate = !this.showCreate;
+}
 
   /**
    * This will initialize the component by retrieving the list of editorials from the service
    * This method will be called when the component is created
    */
   ngOnInit() {
+    this.showCreate = false;
   this.getViajeros();
   }
 }
