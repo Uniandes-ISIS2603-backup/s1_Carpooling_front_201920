@@ -18,6 +18,7 @@ export class ConductorListaComponent implements OnInit {
   conductores: Conductor[];
 
   onSelected(conductor_id: number): void{
+    this.cambioDetalle();
     this.conductor_id = conductor_id;
     this.selectedConductor = new ConductorDetail();
     this.conductorService.getConductorDetail(conductor_id).subscribe(o => this.selectedConductor = o);
@@ -27,6 +28,7 @@ export class ConductorListaComponent implements OnInit {
     this.conductorService.getConductores().subscribe(conductores => this.conductores = conductores);
   }
 
+  mostrarDetalle: boolean = false;
   mostrarForm: boolean = false;
 
   mostrarFormulario(): void{
@@ -37,6 +39,10 @@ export class ConductorListaComponent implements OnInit {
   ocultarFormulario(): void{
     this.mostrarForm = false;
     console.log("mostrar form es: "+this.mostrarForm);
+  }
+
+  cambioDetalle(): void {
+    this.mostrarDetalle = !this.mostrarDetalle;
   }
 
   ngOnInit() {
