@@ -35,19 +35,9 @@ export class PublicistaDetailComponent implements OnInit {
 */
 publicista_id: number;
 
-/**
-* The method which retrieves the publicistas of an editorial
-*/
-getPublicistaDetail(): void {
-  this.publicistaService.getPublicistaDetail(this.publicista_id)
-    .subscribe(publicistaDetail => {
-      this.publicistaDetail = publicistaDetail
-    });
-}
 
-updateCalificaciones(): void {
-  this.getPublicistaDetail();
-}
+
+
 
 /**
 * The method which initializes the component
@@ -57,7 +47,6 @@ ngOnInit() {
   this.publicista_id = +this.route.snapshot.paramMap.get('id');
   if (this.publicista_id) {
     this.publicistaDetail = new PublicistaDetail();
-    this.getPublicistaDetail();
   }
 
 }

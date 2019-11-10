@@ -31,12 +31,6 @@ export class PublicistaListComponent implements OnInit {
     */
    showCreate: boolean;
 
-  /**
-   * Asks the service to update the list of editorials
-   */
-  getPublicistas(): void {
-    this.publicistaService.getPublicistas().subscribe(publicistas => this.publicistas = publicistas);
-  }
 
 
 
@@ -44,7 +38,6 @@ export class PublicistaListComponent implements OnInit {
     this.showCreate = false;
     this.publicista_id = publicista_id;
     this.selectedPublicista = new PublicistaDetail();
-    this.publicistaService.getPublicistaDetail(publicista_id).subscribe(o => this.selectedPublicista = o);
   }
 
     /**
@@ -60,7 +53,6 @@ export class PublicistaListComponent implements OnInit {
    */
   ngOnInit() {
     this.showCreate = false;
-  this.getPublicistas();
   }
 
 }
