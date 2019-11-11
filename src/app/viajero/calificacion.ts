@@ -7,5 +7,4 @@ export class Calificacion{
     comentarios:string;
     viajero: Viajero;
     viaje:Viaje;
-    idViaje:number;
 }
