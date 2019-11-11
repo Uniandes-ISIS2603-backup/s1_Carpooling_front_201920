@@ -5,6 +5,7 @@ import { ConductorDetail } from './conductor-detail';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ViajeDetail } from '../viaje/viaje-detail';
+import {Calificacion} from './calificacion';
 
 import { HttpHeaders } from '@angular/common/http';
 import { Viaje } from '../viaje/viaje';
@@ -18,6 +19,8 @@ const httpOptions = {
 const API_URL = environment.apiURL;
 const conductores = "/conductores";
 const viajes = "/viajes";
+const calificaciones = '/calificaciones';
+
  
 @Injectable()
 export class ConductorService {
@@ -40,4 +43,8 @@ export class ConductorService {
  createViaje(viaje:ViajeDetail, conductorId:number, vehiculoId:number): Observable<ViajeDetail>{
    return this.http.post<ViajeDetail>(API_URL+conductores+"/"+conductorId+viajes+"/"+vehiculoId, viaje)
  }
+
+ createCalificacion(conductorId, calificacion): Observable<Calificacion> {
+  return this.http.post<Calificacion>(API_URL + conductores + '/' + conductorId + calificaciones, calificacion);
+}
 }

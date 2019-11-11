@@ -10,6 +10,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 import {ViajeroCalificacionComponent} from './viajero-calificacion/viajero-calificacion.component';
 import {ViajeroAddCalificacionComponent} from './viajero-add-calificacion/viajero-add-calificacion.component'
 import { ViajeroCreateComponent } from './viajero-create/viajero-create.component';
+import { ViajeModule } from '../viaje/viaje.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ViajeroCreateComponent } from './viajero-create/viajero-create.componen
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    ViajeModule,
     NgbModule
   ],
   declarations: [ 
