@@ -1,16 +1,89 @@
-<div id="collapseCalificacion" >
-  <table class="table table-striped">
-      <tbody>
-          <tr *ngFor="let calificacion of viajeroCalificacion">
-              <td><span id="viajero-calificado"><b>El viajero {{viajero.nombre}} fué calificado por el viaje con id {{viaje.id}}</b></span>
-                <span>: </span>
-                <br><span id="viaje-description">Desde {{viaje.origen}} hasta {{viaje.destino}}</span>
-                <br><span id="viaje-description">que fué realizado en el día {{viaje.fechaDeSalida}}</span>
-                <br><span id="viajero-calificado">El resultado de la calificacion fué este :</span>
-                <br><span id="viajero-calificado">Puntaje : {{calificacion.puntaje}}</span>
-                <br><span id="viajero-calificado">Comentarios : {{calificacion.comentarios}}</span>
-              </td>
+<div *ngIf="!mostrarDetalle" id="collapseCalificacion" >
+  <table class="table table-striped" [ngbCollapse]="isCollapsed">
+    <thead>
+      <tr>
+        <th>
+            Puntuacion
+        </th>
+        <th>
+            Comentarios
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>  
+    
+    <tbody>
+          <tr *ngFor="let calificacion of viajeroCalificaciones">
+            <td>{{calificacion.puntuacion}}</td> 
+            <td>{{calificacion.comentarios}}</td>
+            <td style="cursor: pointer;">
+                <button (click)="onSelected(calificacion)" routerLinkActive="active-link">Mostrar</button> 
+
+            </td> 
           </tr>
       </tbody>
   </table>
 </div>
+
+<div *ngIf="mostrarDetalle">
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Atributo 
+          </th>
+          <th>
+            Informacion
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr *ngIf="hasViaje">
+          <th>
+            Fecha de la calificación
+          </th>
+          <td>
+            {{fecha}}
+          </td>
+          </tr>
+          <tr *ngIf="hasViaje">
+            <th>Lugar de la calificación</th>
+            <td>{{destino}}</td>
+          </tr>
+        <tr>
+          <th>Nombre del viajero</th>
+          <td>{{calficacionActual.viajero.nombre}}</td>
+        </tr>
+        <tr>
+          <th>Puntuación Obtenida</th>
+          <td>{{calficacionActual.puntuacion}}</td>
+        </tr>
+        <tr>
+          <th>Comentarios Obtenidos</th>
+          <td>{{calficacionActual.comentarios}}</td>
+        </tr>
+        <tr *ngIf="!hasViaje">
+            <td>
+              No hay informacin del viaje Disponible
+            </td>
+          </tr>
+        <tr>
+            <button type="button" class="btn btn-primary" (click)="cambioDetalle()">Volver</button>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+
+  </div>
+
+
+
+
+
