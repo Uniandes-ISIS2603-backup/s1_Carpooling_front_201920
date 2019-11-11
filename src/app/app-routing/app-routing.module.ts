@@ -12,6 +12,8 @@ import { NotificacionListComponent} from '../notificacion/notificacion-list/noti
 import { ReservaListComponent } from '../reserva/reserva-list/reserva-list.component';
 import { ConductorDetailComponent } from '../conductor/conductor-detail/conductor-detail.component';
 import { ConductorListaComponent } from '../conductor/conductor-lista/conductor-lista.component';
+import { PublicistaDetailComponent } from '../publicista/publicista-detail/publicista-detail.component';
+import { PublicistaListComponent } from '../publicista/publicista-list/publicista-list.component';
 
 const routes: Routes = [
 
@@ -49,6 +51,18 @@ const routes: Routes = [
         {
           path: ':id',
           component: ViajeroDetailComponent
+        }
+        ]
+      },
+      {
+        path: 'publicistas',
+        children: [{
+          path: 'list',
+          component: PublicistaListComponent
+        },
+        {
+          path: ':id',
+          component: PublicistaDetailComponent
         }
         ]
       },
