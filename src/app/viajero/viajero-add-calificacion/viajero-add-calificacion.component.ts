@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Calificacion } from '../calificacion';
 import { ViajeroService } from '../viajero.service';
@@ -11,39 +11,38 @@ import { Viajero } from '../../viajero/viajero';
   templateUrl: './viajero-add-calificacion.component.html',
   styleUrls: ['./viajero-add-calificacion.component.css']
 })
-export class ViajeroAddCalificacionComponent implements OnInit, OnChanges  {
+export class ViajeroAddCalificacionComponent implements OnInit  {
+
+  calificacionForm: FormGroup;
+  @Input() idViajero: number;
+  @Output() updateCalificaciones = new EventEmitter();
 
   constructor(private viajeroService: ViajeroService,
-    private toastrService: ToastrService) 
+   private formBuilder: FormBuilder) 
     {
-     }
+      this.calificacionForm = this.formBuilder.group({
+        puntuacion: ["", Validators.required],
+        comentarios: ["", Validators.required],
+     });
+    }
 
-     @Input() viajero: Viajero;
+    isCollapsed = false;
+     postCalificacion(newCalificacion: Calificacion) {
+      console.warn("Your order has been submitted", newCalificacion);
 
-     calificacion : Calificacion;
-     public isCollapsed = true;
-    
-
-     @Output() updateReviews = new EventEmitter();
-
-     postCalificacion(calificacionForm: NgForm): Calificacion {
-      this.calificacion.viajero = this.viajero;
-      this.viajeroService.createCalificacion(this.viajero.id,this.calificacion)
+      this.viajeroService.createCalificacion(this.idViajero,newCalificacion)
           .subscribe(() => {
-              calificacionForm.resetForm();
-              this.updateReviews.emit();
-              this.toastrService.success("The calificacion was successfully created", 'Calificacion added');
-          }, err => {
-              this.toastrService.error(err, 'Error');
+              this.calificacionForm.reset();
+              this.updateCalificaciones.emit();
           });
-      return this.calificacion;
+      
   }
 
   ngOnInit() {
-    this.calificacion = new Calificacion();
+    
   }
 
   ngOnChanges() {
-    this.ngOnInit();
+   
 }
-} 
+}
