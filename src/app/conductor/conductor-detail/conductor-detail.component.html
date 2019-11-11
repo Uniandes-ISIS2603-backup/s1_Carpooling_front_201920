@@ -1,16 +1,25 @@
-<div class="border p-3">
-    <dl>
-      <dt>Nombre</dt>
-      <dd>{{conductorDetail.nombre}}</dd>
-      <dt>Número de Documento</dt>
-      <dd>{{conductorDetail.numDocumento}}</dd>
-      <dt>Tipo de Documento</dt>
-      <dd>{{conductorDetail.tipoDocumento}}</dd>
-      <dt>Fecha de Nacimiento</dt>
-      <dd>{{conductorDetail.fechaDeNacimiento}}</dd>
-      <dt>Teléfono</dt>
-      <dd>{{conductorDetail.telefono}}</dd>
-      <dt>Correo</dt>
-      <dd>{{conductorDetail.correo}}</dd>
-    </dl>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="border p-3">
+        <dl>
+          <dt>Nombre</dt>
+          <dd>{{conductorDetail.nombre}}</dd>
+          <dt>Número de Documento</dt>
+          <dd>{{conductorDetail.numDocumento}}</dd>
+          <dt>Tipo de Documento</dt>
+          <dd>{{conductorDetail.tipoDocumento}}</dd>
+          <dt>Fecha de Nacimiento</dt>
+          <dd>{{conductorDetail.fechaDeNacimiento}}</dd>
+          <dt>Teléfono</dt>
+          <dd>{{conductorDetail.telefono}}</dd>
+          <dt>Correo</dt>
+          <dd>{{conductorDetail.correo}}</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <app-conductor-viajes [conductorViajes]='conductorDetail.viajes'></app-conductor-viajes>
+    </div>
   </div>
+</div>
