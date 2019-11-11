@@ -12,20 +12,12 @@ import { Trayecto } from '../trayecto';
 })
 export class ViajeDetailComponent implements OnInit {
 
-  trayectoForm:FormGroup;
 
   constructor(
     private viajeService:ViajeService,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private route: ActivatedRoute
   ) { 
-    this.trayectoForm=this.formBuilder.group({
-      numPeajes: ["", Validators.required],
-      duracion: ["", Validators.required],
-      costoCombustible: ["", Validators.required],
-      origen: ["", Validators.required],
-      destino: ["", Validators.required]
-    });
+    
   }
 
   viajeDetail: ViajeDetail;
@@ -40,6 +32,8 @@ export class ViajeDetailComponent implements OnInit {
 
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    this.viajeDetail = new ViajeDetail();
+    this.getViajeDetail();
   }
 
   onLoad(params) {
@@ -54,11 +48,9 @@ export class ViajeDetailComponent implements OnInit {
     this.loader.unsubscribe();
   }
 
-  createTrayecto(newTrayecto: Trayecto) {
-    // Process checkout data here
-    console.warn("Your order has been submitted", newTrayecto);
+  updateTrayectos():void{
+    this.getViajeDetail();
 
-   this.trayectoForm.reset();
   }
 
 }

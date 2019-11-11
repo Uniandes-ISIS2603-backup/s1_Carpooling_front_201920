@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Trayecto } from '../trayecto';
 
 @Component({
   selector: 'app-viaje-trayectos',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./viaje-trayectos.component.css']
 })
 export class ViajeTrayectosComponent implements OnInit {
+  @Input() viajeTrayectos : Trayecto [];
+
+  public isCollapsed = false;
+
+  updateReviews(trayectos:Trayecto[]): void {
+    this.viajeTrayectos = trayectos;
+}
 
   constructor() { }
 
