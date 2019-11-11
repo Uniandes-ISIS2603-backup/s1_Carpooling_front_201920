@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { PublicistaService } from '../publicista.service';
@@ -35,18 +35,25 @@ export class PublicistaDetailComponent implements OnInit {
 */
 publicista_id: number;
 
+  /**
+  * The method which retrieves the publicistas of an editorial
+  */
+ getPublicistaDetail(): void {
+  this.publicistaService.getPublicistaDetail(this.publicista_id)
+    .subscribe(publicistaDetail => {
+      this.publicistaDetail = publicistaDetail
+    });
+}
 
-
-
-
-/**
-* The method which initializes the component
-* We need to initialize the editorial so it is never considered as undefined
-*/
-ngOnInit() {
+  /**
+  * The method which initializes the component
+  * We need to initialize the editorial so it is never considered as undefined
+  */
+ ngOnInit() {
   this.publicista_id = +this.route.snapshot.paramMap.get('id');
   if (this.publicista_id) {
     this.publicistaDetail = new PublicistaDetail();
+    this.getPublicistaDetail();
   }
 
 }
