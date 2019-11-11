@@ -6,15 +6,19 @@ import { ViajeroListComponent } from './viajero-list/viajero-list.component';
 import { ViajeroService } from './viajero.service';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import {ViajeroCalificacionComponent} from './viajero-calificacion/viajero-calificacion.component';
 import {ViajeroAddCalificacionComponent} from './viajero-add-calificacion/viajero-add-calificacion.component'
 import { ViajeroCreateComponent } from './viajero-create/viajero-create.component';
+import { ViajeModule } from '../viaje/viaje.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    ViajeModule,
     NgbModule
   ],
   declarations: [ 
@@ -23,6 +27,6 @@ import { ViajeroCreateComponent } from './viajero-create/viajero-create.componen
     ViajeroAddCalificacionComponent,
     ViajeroCreateComponent],
     providers: [ViajeroService],
-    exports:[ViajeroListComponent]
+    exports:[ViajeroListComponent, ViajeroAddCalificacionComponent]
 })
 export class ViajeroModule { }

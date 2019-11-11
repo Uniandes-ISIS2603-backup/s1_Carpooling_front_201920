@@ -1,43 +1,79 @@
-<div >
-  <div class="container-fluid">
-      <h3>Agregar una  calificacion</h3>
-      <form idViaje="post" (ngSubmit)="calificacionForm.form.valid && postCalificacion(calificacionForm)" #calificacionForm="ngForm" novalidate>
-            <div class="row">
-              <div class="col">
-                  <div class="form-group">
-                      <label for="calificacionIdViaje"><b>IdViaje</b></label>
-                      <input type="text" idViaje="calificacionIdViaje" class="form-control" id="calificacionIdViaje" [(ngModel)]="calificacion.idViaje"
-                             #calificacionIdViaje="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionIdViaje.invalid }" required>
-                             <div class="invalid-feedback">
-                          <div>The calificacion's idViaje is missing</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col">
-                  <div class="form-group">
-                      <label for="calificacionPuntaje"><b>Puntaje</b></label>
-                      <input type="text" idViaje="calificacionPuntaje" class="form-control" id="calificacionPuntaje" [(ngModel)]="calificacion.puntaje"
-                             #calificacionPuntaje="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionIdViaje.invalid }" required>
-                             <div class="invalid-feedback">
-                          <div>The calificacion's puntaje is missing</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col">
-                  <div class="form-group">
-                      <label for="calificacionComentario"><b>Comentario</b></label>
-                      <textarea idViaje="calificacionComentario" class="form-control" id="calificacionComentario" [(ngModel)]="calificacion.comentario"
-                                #calificacionComentario="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionComentario.invalid }"
-                                required></textarea>
-                      <div class="invalid-feedback">
-                          <div>The calificacion's comentario is missing</div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="row form-inline justify-content-center align-self-center">
-              <button type="submit" class="btn btn-primary">Post calificacion</button>
-          </div>
-      </form>
+<div class="row offset-md-1">
+    <div class="card-group" *ngFor="let v of viajes">
+      <div class="card border-secondary" style="width: 16rem;">
+        <div class="card-body">
+          <ul>
+            <li class="card-text">Destino: {{v.destino}}</li>
+            <li class="card-text">Origen: {{v.origen}}</li>
+            <li class="card-text">Fecha de Salida: {{v.fechaDeSalida}}</li>
+            <li class="card-text">Fecha de llegada: {{v.fechaDeLlegada}}</li>
+            <li class="card-text">Cupos: {{v.cupos}}</li>
+            <li class="card-text">Costo: {{v.costoViaje}}</li>
+            <li class="card-text">Estado: {{v.estadoViaje}}</li>
+          </ul>
+          <a class="btn btn-primary" (click)="seleccionarViaje(v)">Seleccionar este viaje</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  
+
+<form [formGroup]="calificacionForm" (ngSubmit)="postCalificacion(calificacionForm.value )">
+
+        <div class="form-group mx-sm-3 mb-2">
+         <label for="puntuacion">
+           Puntuación
+         </label>
+         <input
+           id="puntuacion"
+           type="number"
+           class="form-control"
+           formControlName="puntuacion"
+           placeholder="">
+        </div>
+     
+        <div class="form-group  mx-sm-3 mb-2">
+         <label for="comentarios">
+           Comentarios
+         </label>
+        <input id="comentarios" type="text"
+          class="form-control"
+          formControlName="comentarios"
+          placeholder="">
+
+          <div class = "row">
+      
+              <div class = "col-4">
+        
+              </div>
+              <div class= "col">
+                  <div class="card border-secondary" style="width: 16rem;" *ngIf="tieneViaje">
+                    <div class="card-body" >
+                      <h2>
+                        Viaje Seleccionado
+                      </h2>  
+                      <ul>
+                          <li class="card-text">Destino: {{viaje.destino}}</li>
+                          <li class="card-text">Origen: {{viaje.origen}}</li>
+                          <li class="card-text">Fecha de Salida: {{viaje.fechaDeSalida}}</li>
+                          <li class="card-text">Fecha de llegada: {{viaje.fechaDeLlegada}}</li>
+                          <li class="card-text">Cupos: {{viaje.cupos}}</li>
+                          <li class="card-text">Costo: {{viaje.costoViaje}}</li>
+                          <li class="card-text">Estado: {{viaje.estadoViaje}}</li>
+                        </ul>
+                    </div>
+              </div>
+                  
+              </div>
+              
+            </div>
+       </div>
+
+
+    
+      
+              <button class="button mx-sm-3 mb-2" type="submit"   
+               [disabled]="calificacionForm.invalid">Create</button>
+     
+     </form>
+    
