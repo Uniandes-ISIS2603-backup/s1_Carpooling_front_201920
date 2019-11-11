@@ -10,11 +10,12 @@ import { ConductorAddViajeComponent } from './conductor-add-viaje/conductor-add-
 import {ConductorCalificacionComponent} from './conductor-calificacion/conductor-calificacion.component';
 import {ConductorAddCalificacionComponent} from './conductor-add-calificacion/conductor-add-calificacion.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViajeModule } from '../viaje/viaje.module';
 
 @NgModule({
   imports: [
     CommonModule, ReactiveFormsModule,  ReactiveFormsModule,
-    NgbModule
+    NgbModule, ViajeModule
   ],
   declarations: [ConductorListaComponent, ConductorDetailComponent, ConductorCreateComponent, ConductorViajesComponent, ConductorAddViajeComponent, ConductorCalificacionComponent,
     ConductorAddCalificacionComponent],
