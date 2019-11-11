@@ -29,8 +29,7 @@ export class ViajeroDetailComponent implements OnInit {
   * The editorial whose details we want to show
   */
   @Input() viajeroDetail: ViajeroDetail;
-
-
+  crearCalificacion = false;
 
   /**
   * The editorial's id retrieved from the address
@@ -41,6 +40,12 @@ export class ViajeroDetailComponent implements OnInit {
   @ViewChild(ViajeroAddCalificacionComponent) calificacionAddComponent: ViajeroAddCalificacionComponent;
   
 
+  ActivarCrearCalificacion() : void{
+    this.crearCalificacion = true;
+  }
+  DesactivarCrearCalificacion():void{
+    this.crearCalificacion = false;
+  }
   
   toggleCalificaciones(): void {
     if (this.calificacionAddComponent.isCollapsed == false) {

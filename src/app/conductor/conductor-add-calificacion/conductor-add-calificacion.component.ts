@@ -4,25 +4,25 @@ import { ToastrService } from 'ngx-toastr';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Calificacion } from '../calificacion';
-import { ViajeroService } from '../viajero.service';
-import { Viajero } from '../../viajero/viajero';
+import { ConductorService } from '../conductor.service';
+import { Conductor } from '../../conductor/conductor';
 import { Viaje } from '../../viaje/viaje';
 import { ViajeService } from '../../viaje/viaje.service';
 @Component({
-  selector: 'app-viajero-add-calificacion',
-  templateUrl: './viajero-add-calificacion.component.html',
-  styleUrls: ['./viajero-add-calificacion.component.css']
+  selector: 'app-conductor-add-calificacion',
+  templateUrl: './conductor-add-calificacion.component.html',
+  styleUrls: ['./conductor-add-calificacion.component.css']
 })
-export class ViajeroAddCalificacionComponent implements OnInit  {
+export class ConductorAddCalificacionComponent implements OnInit  {
 
   calificacionForm: FormGroup;
-  @Input() idViajero: number;
+  @Input() idConductor: number;
   @Output() updateCalificaciones = new EventEmitter();
   viaje :Viaje;
   viajes : Viaje[];
   tieneViaje = false;
 
-  constructor(private viajeroService: ViajeroService,
+  constructor(private conductorService: ConductorService,
    private formBuilder: FormBuilder, viajeService: ViajeService) 
     {
       viajeService.getViajes().subscribe(viajes => this.viajes = viajes);
@@ -45,7 +45,7 @@ export class ViajeroAddCalificacionComponent implements OnInit  {
      postCalificacion(newCalificacion: Calificacion) {
       console.warn("Your order has been submitted", newCalificacion);
       newCalificacion.viaje = this.viaje;
-      this.viajeroService.createCalificacion(this.idViajero,newCalificacion)
+      this.conductorService.createCalificacion(this.idConductor,newCalificacion)
           .subscribe(() => {
               this.calificacionForm.reset();
               this.updateCalificaciones.emit();
