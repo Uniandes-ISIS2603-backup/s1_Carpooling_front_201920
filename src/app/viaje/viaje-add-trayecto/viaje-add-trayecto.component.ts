@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input , EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ViajeService } from '../viaje.service';
 import { Viaje } from '../viaje';
@@ -16,6 +16,8 @@ export class ViajeAddTrayectoComponent implements OnInit {
 
   @Input() idViaje:number;
 
+  @Output() updateTrayectos = new EventEmitter();
+
   constructor(private viajeService: ViajeService,
     private formBuilder: FormBuilder
   ) {
@@ -31,8 +33,11 @@ export class ViajeAddTrayectoComponent implements OnInit {
 
   postTrayecto(newTrayecto: Trayecto) {
     console.warn("Your order has been submitted", newTrayecto);
-    this.viajeService.createTrayecto(this.idViaje, newTrayecto).subscribe();
-    this.trayectoForm.reset();
+    this.viajeService.createTrayecto(this.idViaje, newTrayecto).subscribe(
+      ()=>{
+        this.trayectoForm.reset();
+        this.updateTrayectos.emit();
+      });
   }
 
   ngOnInit() {
