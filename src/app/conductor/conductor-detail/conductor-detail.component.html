@@ -47,6 +47,21 @@
           </tr>
         </tbody>
       </table>
+      <h1>Calificaciones:</h1>
+      <app-conductor-calificacion [conductorCalificaciones]="conductorDetail.calificaciones"></app-conductor-calificacion>
+      <p *ngIf="!crearCalificacion">
+          <button type="button" class="btn btn-primary" (click)="ActivarCrearCalificacion()" routerLinkActive="active-link" >Crear una calificación</button>
+  </p>
+    <p *ngIf="crearCalificacion">
+          <app-conductor-add-calificacion [idConductor]='conductorDetail.id' (updateCalificaciones)="updateCalificaciones()">
+              
+          </app-conductor-add-calificacion>
+    </p>
+    <p *ngIf="crearCalificacion">
+
+          <button   type="button" class="btn btn-primary" (click)="DesactivarCrearCalificacion()" routerLinkActive="active-link" >Cancelar</button>
+
+    </p>
     </div>
   </div>
 </div>
