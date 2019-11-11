@@ -10,4 +10,9 @@ export class Usuario {
   tipoDocumento: TipoDeDocumento;
   numDocumento: string;
   fechaDeNacimiento: string;
+  otraFecha: string;
+
+  ponerOtraFecha(): void{
+    this.otraFecha = this.fechaDeNacimiento.split("T")[0];
+  }
 }
