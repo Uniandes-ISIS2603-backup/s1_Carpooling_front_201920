@@ -1,5 +1,5 @@
 import { Viaje } from './viaje'
-import { Reserva } from './reserva';
+import { Reserva } from '../reserva/reserva';
 import { Calificacion } from './calificacion';
 import { Trayecto } from './trayecto';
 
