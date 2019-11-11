@@ -15,6 +15,6 @@ import { ConductorAddViajeComponent } from './conductor-add-viaje/conductor-add-
   ],
   declarations: [ConductorListaComponent, ConductorDetailComponent, ConductorCreateComponent, ConductorViajesComponent, ConductorAddViajeComponent],
   providers: [ConductorService],
-  exports: [ConductorListaComponent, ConductorCreateComponent, ReactiveFormsModule, FormsModule ]
+  exports: [ConductorListaComponent, ConductorCreateComponent, ReactiveFormsModule, FormsModule, ConductorAddViajeComponent ]
 })
 export class ConductorModule { }

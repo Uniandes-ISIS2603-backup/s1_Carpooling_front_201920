@@ -1,3 +1,57 @@
-<p>
-  conductor-add-viaje works!
-</p>
+<form [formGroup]="viajeForm" (ngSubmit)="postViaje(viajeForm.value )">
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="origen">
+      Origen
+    </label>
+    <input id="origen" type="text" class="form-control" formControlName="origen" placeholder="">
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="destino">
+      Destino
+    </label>
+    <input id="destino" type="text" class="form-control" formControlName="destino" placeholder="">
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="fechaDeSalida">
+      Fecha de Salida
+    </label>
+    <input id="fechaDeSalida" type="text" class="form-control" formControlName="fechaDeSalida" placeholder="">
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="fechaDeLlegada">
+      Fecha de Llegada
+    </label>
+    <input id="fechaDeLlegada" type="text" class="form-control" formControlName="fechaDeLlegada" placeholder="">
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="cupos">
+      Cupos
+    </label>
+    <input id="cupos" type="number" class="form-control" formControlName="cupos" placeholder="">
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="costoViaje">
+      Costo Viaje
+    </label>
+    <input id="costoViaje" type="number" class="form-control" formControlName="costoViaje" placeholder="">
+  </div>
+
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="vehiculo">
+      Vehiculo
+    </label>
+    <select class="form-control custom-select" id="vehiculo" formControlName="vehiculo">
+      <option *ngFor="let v of vehiculos" [ngValue]="v" selected>{{v.placa}}</option>
+    </select></div>
+
+
+  <button class="button mx-sm-3 mb-2" type="submit" [disabled]="viajeForm.invalid">Crear Viaje</button>
+
+</form>

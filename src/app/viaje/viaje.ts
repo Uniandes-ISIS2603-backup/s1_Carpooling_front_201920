@@ -1,3 +1,6 @@
+import { Vehiculo } from "../conductor/vehiculo";
+import { EstadoDeViaje } from "./estado-de-viaje.enum";
+
 export class Viaje {
     id: number;
     destino: string;
@@ -6,5 +9,6 @@ export class Viaje {
     fechaDeLlegada: string;
     cupos: number;
     costoViaje: number;
-    estadoViaje: string;
+    estadoViaje: EstadoDeViaje;
+    vehiculo: Vehiculo;
   } 

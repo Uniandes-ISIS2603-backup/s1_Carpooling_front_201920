@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Vehiculo } from '../vehiculo';
+import { ConductorService } from '../conductor.service';
+import { Viaje } from '../../viaje/viaje';
+import { ViajeDetail } from '../../viaje/viaje-detail';
+import { EstadoDeViaje} from '../../viaje/estado-de-viaje.enum';
 
 @Component({
   selector: 'app-conductor-add-viaje',
@@ -7,7 +13,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConductorAddViajeComponent implements OnInit {
 
-  constructor() { }
+  viajeForm: FormGroup;
+
+  @Input() conductorId: number;
+
+  @Input() vehiculos: Vehiculo[];
+
+  @Output() updateViajes = new EventEmitter();
+
+  constructor(private conductorService: ConductorService,
+    private formBuilder: FormBuilder) {
+    this.viajeForm = this.formBuilder.group({
+      origen: ["", Validators.required],
+      destino: ["", Validators.required],
+      fechaDeSalida: ["", Validators.required],
+      fechaDeLlegada: ["", Validators.required],
+      cupos: ["", Validators.required],
+      costoViaje: ["", Validators.required],
+      vehiculo: ["",]
+    });
+    console.log(this.conductorId)
+  }
+
+  postViaje(newViaje: ViajeDetail):void{
+    newViaje.estadoViaje=EstadoDeViaje.PUBLICADO;
+    this.conductorService.createViaje(newViaje, this.conductorId, newViaje.vehiculo.id).subscribe(
+      ()=>{
+        this.viajeForm.reset();
+        this.updateViajes.emit();
+      });
+  }
 
   ngOnInit() {
   }
