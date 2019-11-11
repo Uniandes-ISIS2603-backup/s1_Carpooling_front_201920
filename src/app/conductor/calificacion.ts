@@ -1,10 +1,10 @@
-import { Viajero} from './viajero'
+import { Conductor} from './conductor'
 import { Viaje } from '../viaje/viaje';
 
 export class Calificacion{
     id:number;
     puntuacion:number;
     comentarios:string;
-    viajero: Viajero;
+    conductor: Conductor;
     viaje:Viaje;
 }

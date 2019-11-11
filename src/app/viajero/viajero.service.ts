@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const viajeros = '/viajeros';
-const calificaciones = 'calificaciones';
+const calificaciones = '/calificaciones';
 /**
 * The service provider for everything related to editorials
 */

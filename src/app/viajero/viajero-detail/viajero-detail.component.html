@@ -38,44 +38,24 @@
         
         <div class="card-body">
           <h5 class="card-title">Calificaciones</h5>
-          <p class="card-text">Aqui pueden ir las calificaciones</p>
-          <a href="#" class="btn btn-primary">Un boton de calificaciones</a>
+          <p class="card-text" *ngIf="viajeroDetail.calificaciones.length > 0">
+                <app-viajero-calificacion [viajeroCalificaciones]="viajeroDetail.calificaciones"></app-viajero-calificacion>
+                   
+                
+                </p>
+        <p *ngIf="!crearCalificacion">
+                <button type="button" class="btn btn-primary" (click)="ActivarCrearCalificacion()" routerLinkActive="active-link" >Crear una calificación</button>
+        </p>
+          <p *ngIf="crearCalificacion">
+                <app-viajero-add-calificacion [idViajero]='viajeroDetail.id' (updateCalificaciones)="updateCalificaciones()">
+                    
+                </app-viajero-add-calificacion>
+          </p>
+          <p *ngIf="crearCalificacion">
+
+                <button   type="button" class="btn btn-primary" (click)="DesactivarCrearCalificacion()" routerLinkActive="active-link" >Cancelar</button>
+
+          </p>
+
         </div>
       </div>
-
-      <p> {{viajeroDetail.calificaciones}}</p>
-
-
-<!--
-<div class="panel panel-default"> 
-    <div>
-        <div class="border margin">
-<div class = "row">
-    <div class = "col">
-          <p class="h4 p-3">Viajero: {{viajeroDetail.nombre}}</p>
-          <p> {{viajeroDetail.description}}</p>
-        </div>
-        </div>
-        <div >
-                <div class="row">
-                    <div class="col-md-3">
-                        <p *ngIf="viajeroDetail.calificaciones.length > 0">
-                            <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionListComponent.isCollapsed,'btn-outline-primary':!calificacionListComponent.isCollapsed}" (click)="toggleCalificaciones()">
-                                Calificaciones of the viajero
-                            </button>
-                        </p>
-                    </div>
-                    <div class="col-md-3">
-                        <p>
-                            <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionAddComponent.isCollapsed,'btn-outline-primary':!calificacionAddComponent.isCollapsed}" (click)="toggleCreateCalificacion()">
-                                Create a Calificacion
-                            </button>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
--->

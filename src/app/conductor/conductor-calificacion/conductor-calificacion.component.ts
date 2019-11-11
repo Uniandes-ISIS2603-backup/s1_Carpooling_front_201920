@@ -3,11 +3,11 @@ import { Calificacion } from '../calificacion';
 
 
 @Component({
-  selector: 'app-viajero-calificacion',
-  templateUrl: './viajero-calificacion.component.html',
+  selector: 'app-conductor-calificacion',
+  templateUrl: './conductor-calificacion.component.html',
 })
-export class ViajeroCalificacionComponent implements OnInit {
-  @Input() viajeroCalificaciones : Calificacion [];
+export class ConductorCalificacionComponent implements OnInit {
+  @Input() conductorCalificaciones : Calificacion [];
   public isCollapsed = false;
   public hasViaje = false;
   calficacionActual: Calificacion;
@@ -34,7 +34,7 @@ export class ViajeroCalificacionComponent implements OnInit {
   }
 
   updateCalificaciones(calificaciones:Calificacion[]): void {
-    this.viajeroCalificaciones = calificaciones;
+    this.conductorCalificaciones = calificaciones;
 }
 
 

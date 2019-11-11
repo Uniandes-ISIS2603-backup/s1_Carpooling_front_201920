@@ -5,14 +5,21 @@ import { ConductorListaComponent } from './conductor-lista/conductor-lista.compo
 import { ConductorDetailComponent } from './conductor-detail/conductor-detail.component';
 import { ConductorCreateComponent } from './conductor-create/conductor-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ConductorViajesComponent } from './conductor-viajes/conductor-viajes.component';
+import { ConductorAddViajeComponent } from './conductor-add-viaje/conductor-add-viaje.component';
+import {ConductorCalificacionComponent} from './conductor-calificacion/conductor-calificacion.component';
+import {ConductorAddCalificacionComponent} from './conductor-add-calificacion/conductor-add-calificacion.component'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViajeModule } from '../viaje/viaje.module';
 
 @NgModule({
   imports: [
-    CommonModule, ReactiveFormsModule
+    CommonModule, ReactiveFormsModule,  ReactiveFormsModule,
+    NgbModule, ViajeModule
   ],
-  declarations: [ConductorListaComponent, ConductorDetailComponent, ConductorCreateComponent],
+  declarations: [ConductorListaComponent, ConductorDetailComponent, ConductorCreateComponent, ConductorViajesComponent, ConductorAddViajeComponent, ConductorCalificacionComponent,
+    ConductorAddCalificacionComponent],
   providers: [ConductorService],
-  exports: [ConductorListaComponent, ConductorCreateComponent, ReactiveFormsModule, FormsModule ]
+  exports: [ConductorListaComponent, ConductorCreateComponent, ReactiveFormsModule, FormsModule, ConductorAddViajeComponent, ConductorAddCalificacionComponent ]
 })
 export class ConductorModule { }

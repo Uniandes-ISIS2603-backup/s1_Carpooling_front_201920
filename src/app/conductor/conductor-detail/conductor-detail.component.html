@@ -1,16 +1,67 @@
-<div class="border p-3">
-    <dl>
-      <dt>Nombre</dt>
-      <dd>{{conductorDetail.nombre}}</dd>
-      <dt>Número de Documento</dt>
-      <dd>{{conductorDetail.numDocumento}}</dd>
-      <dt>Tipo de Documento</dt>
-      <dd>{{conductorDetail.tipoDocumento}}</dd>
-      <dt>Fecha de Nacimiento</dt>
-      <dd>{{conductorDetail.fechaDeNacimiento}}</dd>
-      <dt>Teléfono</dt>
-      <dd>{{conductorDetail.telefono}}</dd>
-      <dt>Correo</dt>
-      <dd>{{conductorDetail.correo}}</dd>
-    </dl>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="border p-3">
+        <dl>
+          <dt>Nombre</dt>
+          <dd>{{conductorDetail.nombre}}</dd>
+          <dt>Número de Documento</dt>
+          <dd>{{conductorDetail.numDocumento}}</dd>
+          <dt>Tipo de Documento</dt>
+          <dd>{{conductorDetail.tipoDocumento}}</dd>
+          <dt>Fecha de Nacimiento</dt>
+          <dd>{{conductorDetail.fechaDeNacimiento}}</dd>
+          <dt>Teléfono</dt>
+          <dd>{{conductorDetail.telefono}}</dd>
+          <dt>Correo</dt>
+          <dd>{{conductorDetail.correo}}</dd>
+        </dl>
+      </div>
+      <h1>Añadir Viaje:</h1>
+      <app-conductor-add-viaje [vehiculos]='conductorDetail.vehiculos' [conductorId]='conductorDetail.id' (updateViajes)="updateViajes()"></app-conductor-add-viaje>
+    </div>
+    <div class="col-md-8">
+      <app-conductor-viajes [conductorViajes]='conductorDetail.viajes'></app-conductor-viajes>
+      <h1>Vehiculos:</h1>
+      <table class="table table-striped table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Soat</th>
+            <th scope="col">Placa</th>
+            <th scope="col">Aseguradora</th>
+            <th scope="col">Vigencia Soat</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Sillas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let v of conductorDetail.vehiculos">
+            <td>{{v.id}}</td>
+            <td>{{v.soat}}</td>
+            <td>{{v.placa}}</td>
+            <td>{{v.aseguradora}}</td>
+            <td>{{v.vigenciaSoat}}</td>
+            <td>{{v.modelo}}</td>
+            <td>{{v.sillas}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h1>Calificaciones:</h1>
+      <app-conductor-calificacion [conductorCalificaciones]="conductorDetail.calificaciones"></app-conductor-calificacion>
+      <p *ngIf="!crearCalificacion">
+          <button type="button" class="btn btn-primary" (click)="ActivarCrearCalificacion()" routerLinkActive="active-link" >Crear una calificación</button>
+  </p>
+    <p *ngIf="crearCalificacion">
+          <app-conductor-add-calificacion [idConductor]='conductorDetail.id' (updateCalificaciones)="updateCalificaciones()">
+              
+          </app-conductor-add-calificacion>
+    </p>
+    <p *ngIf="crearCalificacion">
+
+          <button   type="button" class="btn btn-primary" (click)="DesactivarCrearCalificacion()" routerLinkActive="active-link" >Cancelar</button>
+
+    </p>
+    </div>
   </div>
+</div>
