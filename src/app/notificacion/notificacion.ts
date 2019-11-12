@@ -1,7 +1,7 @@
 export class Notificacion {
   id: number
-  mensaje: String;
-  titulo: String;
-  fecha: String;
+  mensaje: string;
+  titulo: string;
+  fecha: string;
 
 }

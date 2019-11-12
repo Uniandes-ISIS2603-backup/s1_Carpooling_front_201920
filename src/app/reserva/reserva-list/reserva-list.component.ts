@@ -19,9 +19,6 @@ export class ReservaListComponent implements OnInit {
     getReservas(){
     this.reservaService.getReservas().subscribe(reservas => this.reservas = reservas);
     //this.poder = 5;
-    console.log("hola");
-    console.log(this.reservas);
-
     }
 
   ngOnInit() {
