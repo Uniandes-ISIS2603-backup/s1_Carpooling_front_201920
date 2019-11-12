@@ -1,8 +1,8 @@
 export class Reserva {
   id: number;
-  numeroDeReserva: String;
-  confirmacion: String;
-  fecha: String;
-  estado: String;
+  numeroDeReserva: string;
+  confirmacion: string;
+  fecha: string;
+  estado: string;
 
 }
