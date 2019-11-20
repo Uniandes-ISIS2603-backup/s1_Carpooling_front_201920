@@ -14,6 +14,7 @@ import { ConductorDetailComponent } from '../conductor/conductor-detail/conducto
 import { ConductorListaComponent } from '../conductor/conductor-lista/conductor-lista.component';
 import { PublicistaDetailComponent } from '../publicista/publicista-detail/publicista-detail.component';
 import { PublicistaListComponent } from '../publicista/publicista-list/publicista-list.component';
+import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
 
 const routes: Routes = [
 
@@ -91,6 +92,11 @@ const routes: Routes = [
         children: [{
           path: 'list',
           component: ReservaListComponent
+        },
+        {
+          path: ':id',
+          component: ReservaDetailComponent,
+
         }
         ]
       },

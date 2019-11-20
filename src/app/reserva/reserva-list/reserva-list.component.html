@@ -1,13 +1,13 @@
 <div class="container-fluid">
-	<div class="col-md-2">
-		<table class="table table-striped">
-			<thead class="thead-dark">
-				<tr>
-					<th>#</th>
-          <th>numero de reserva</th>
-          <th>confirmacion</th>
-          <th>fecha</th>
-          <th>estado</th>
+	<div class= "row">
+		<div class="col-md-4">
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>#</th>
+          	<th>numero de reserva</th>
+			<th>Ver Info</th>
+			
 				</tr>
 			</thead>
 			<tbody>
@@ -19,16 +19,15 @@
 						{{i.numeroDeReserva}}
 					</td>
 					<td>
-						{{i.confirmacion}}
-					</td>
-					<td>
-						{{i.fecha}}
-					</td>
-					<td>
-						{{i.estado}}
+						
+							<a routerLink="/reservas/{{i.id}}" routerLinkActive="activeLink"><button>detalle</button></a>
+								
 					</td>
 
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	
+</div>
+</div>
