@@ -3,6 +3,7 @@ import { Reserva } from '../reserva';
 import { ReservaService } from "../reserva.service";
 import { Router, ActivatedRoute } from "@angular/router";
 
+
 @Component({
   selector: 'app-reserva-list',
   templateUrl: './reserva-list.component.html',
@@ -22,6 +23,7 @@ export class ReservaListComponent implements OnInit {
 
   ngOnInit() {
     this.getReservas();
+
   }
 
 }
