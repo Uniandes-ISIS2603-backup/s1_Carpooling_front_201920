@@ -1,5 +1,5 @@
-import { Disponibilidad } from "src/enums/disponibilidad.enum";
 import { Publicista } from "./publicista";
+import { Disponibilidad } from "../enums/disponibilidad.enum";
 
 export class Publicidad{
     id:number;
@@ -8,6 +8,6 @@ export class Publicidad{
     costo:number;
     fechaDeInicio:string;
     fechaDeSalida:string;
-    disponibilidad:Disponibilidad;
+    disponibilidad:Disponibilidad
     publicista:Publicista;
 }
