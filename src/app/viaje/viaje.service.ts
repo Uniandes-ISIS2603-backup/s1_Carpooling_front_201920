@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ViajeDetail } from './viaje-detail';
-import { Viaje } from './viaje';
+import { ViajeDetail } from '../../classes/viaje-detail';
+import { Viaje } from '../../classes/viaje';
 import {environment} from '../../environments/environment';
-import { Trayecto } from './trayecto';
+import { Trayecto } from '../../classes/trayecto';
 
 const API_URL = environment.apiURL;
 const viajes = '/viajes';

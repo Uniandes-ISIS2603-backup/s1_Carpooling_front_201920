@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Trayecto } from '../trayecto';
+import { Trayecto } from '../../../classes/trayecto';
 
 @Component({
   selector: 'app-viaje-trayectos',

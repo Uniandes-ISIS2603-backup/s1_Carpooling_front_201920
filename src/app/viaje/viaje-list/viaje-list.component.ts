@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ViajeDetail } from '../viaje-detail';
-import { Viaje } from '../viaje';
+import { ViajeDetail } from '../../../classes/viaje-detail';
+import { Viaje } from '../../../classes/viaje';
 import { ViajeService } from '../viaje.service';
 
 @Component({

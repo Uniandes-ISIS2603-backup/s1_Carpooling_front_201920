@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ViajeService } from '../viaje.service'
-import { ViajeDetail } from '../viaje-detail';
+import { ViajeDetail } from '../../../classes/viaje-detail';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Trayecto } from '../trayecto';
+import { Trayecto } from '../../../classes/trayecto';
 
 @Component({
   selector: 'app-viaje-detail',
