@@ -12,38 +12,33 @@ import { Trayecto } from '../../../classes/trayecto';
 })
 export class ViajeDetailComponent implements OnInit {
 
-
-  constructor(
-    private viajeService:ViajeService,
-    private route: ActivatedRoute
-  ) { 
-    
-  }
-
   viajeDetail: ViajeDetail;
 
   @Input() viajeId:number;
 
   loader: any;
 
-  getViajeDetail():void {
-    this.viajeService.getViajeDetail(this.viajeId).subscribe(viajeDetail=>{this.viajeDetail=viajeDetail});
+  constructor(
+    private viajeService:ViajeService,
+    private route: ActivatedRoute
+  ) { 
   }
 
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-    this.viajeDetail = new ViajeDetail();
-    this.getViajeDetail();
   }
 
   onLoad(params) {
-
     this.viajeId = parseInt(params['id']);
     console.log(" en detail " + this.viajeId);
     this.viajeDetail = new ViajeDetail();
     this.getViajeDetail();
   }
 
+  getViajeDetail():void {
+    this.viajeService.getViajeDetail(this.viajeId).subscribe(viajeDetail=>{this.viajeDetail=viajeDetail});
+  }
+  
   ngOnDestroy() {
     this.loader.unsubscribe();
   }
