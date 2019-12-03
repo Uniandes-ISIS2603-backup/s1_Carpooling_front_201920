@@ -18,7 +18,7 @@
         </dl>
       </div>
       <h1>Añadir Viaje:</h1>
-      <app-conductor-add-viaje [vehiculos]='conductorDetail.vehiculos' [conductorId]='conductorDetail.id' (updateViajes)="updateViajes()"></app-conductor-add-viaje>
+      <app-conductor-add-viaje [vehiculos]='conductorDetail.vehiculos' [conductorId]='conductorId' (updateViajes)="updateViajes()"></app-conductor-add-viaje>
     </div>
     <div class="col-md-8">
       <app-conductor-viajes [conductorViajes]='conductorDetail.viajes'></app-conductor-viajes>

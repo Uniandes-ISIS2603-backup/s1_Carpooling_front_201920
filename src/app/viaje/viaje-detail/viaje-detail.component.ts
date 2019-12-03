@@ -2,8 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ViajeService } from '../viaje.service'
 import { ViajeDetail } from '../../../classes/viaje-detail';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Trayecto } from '../../../classes/trayecto';
 
 @Component({
   selector: 'app-viaje-detail',
@@ -12,9 +10,9 @@ import { Trayecto } from '../../../classes/trayecto';
 })
 export class ViajeDetailComponent implements OnInit {
 
-  viajeDetail: ViajeDetail;
-
   @Input() viajeId:number;
+
+  viajeDetail: ViajeDetail;
 
   loader: any;
 
