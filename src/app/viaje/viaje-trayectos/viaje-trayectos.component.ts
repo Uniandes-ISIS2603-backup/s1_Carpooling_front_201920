@@ -7,17 +7,14 @@ import { Trayecto } from '../../../classes/trayecto';
   styleUrls: ['./viaje-trayectos.component.css']
 })
 export class ViajeTrayectosComponent implements OnInit {
-  @Input() viajeTrayectos : Trayecto [];
 
-  public isCollapsed = false;
-
-  updateReviews(trayectos:Trayecto[]): void {
-    this.viajeTrayectos = trayectos;
-}
-
-  constructor() { }
+  trayectos:Trayecto[];
 
   ngOnInit() {
   }
 
+  updateTrayectos(trayectos:Trayecto[]): void {
+    this.trayectos = trayectos
+  }
+  constructor() { }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ViajeService } from '../viaje.service'
 import { ViajeDetail } from '../../../classes/viaje-detail';
+import { ViajeTrayectosComponent } from '../viaje-trayectos/viaje-trayectos.component';
 
 @Component({
   selector: 'app-viaje-detail',
@@ -15,6 +16,8 @@ export class ViajeDetailComponent implements OnInit {
   viajeDetail: ViajeDetail;
 
   loader: any;
+
+  @ViewChild(ViajeTrayectosComponent) viajeTrayectosComponent: ViajeTrayectosComponent;
 
   constructor(
     private viajeService:ViajeService,
@@ -43,7 +46,7 @@ export class ViajeDetailComponent implements OnInit {
 
   updateTrayectos():void{
     this.getViajeDetail();
+    this.viajeTrayectosComponent.updateTrayectos(this.viajeDetail.trayectos)
 
   }
-
 }
