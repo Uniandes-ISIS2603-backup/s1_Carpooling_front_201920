@@ -4,11 +4,11 @@ import { Conductor } from './conductor';
 import { ConductorDetail } from './conductor-detail';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { ViajeDetail } from '../viaje/viaje-detail';
+import { ViajeDetail } from '../../classes/viaje-detail';
 import {Calificacion} from './calificacion';
 
 import { HttpHeaders } from '@angular/common/http';
-import { Viaje } from '../viaje/viaje';
+import { Viaje } from '../../classes/viaje';
 
 const httpOptions = {
   headers: new HttpHeaders({

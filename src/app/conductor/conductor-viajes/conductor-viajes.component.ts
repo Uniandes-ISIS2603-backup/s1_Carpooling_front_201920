@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Viaje } from '../../viaje/viaje'
+import { Viaje } from '../../../classes/viaje'
 
 @Component({
   selector: 'app-conductor-viajes',

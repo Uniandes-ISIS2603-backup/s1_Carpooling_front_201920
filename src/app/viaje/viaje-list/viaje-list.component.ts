@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ViajeDetail } from '../viaje-detail';
-import { Viaje } from '../viaje';
+import { Viaje } from '../../../classes/viaje';
 import { ViajeService } from '../viaje.service';
 
 @Component({
@@ -21,7 +20,4 @@ export class ViajeListComponent implements OnInit {
   getViajes():void{
     this.viajeService.getViajes().subscribe(viajes => this.viajes = viajes);
   }
-
-  
-
 }

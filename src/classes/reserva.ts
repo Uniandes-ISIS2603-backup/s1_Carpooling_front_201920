@@ -1,5 +1,5 @@
-import { Viaje } from "../../classes/viaje";
-import { Viajero } from "../viajero/viajero";
+import { Viaje } from "./viaje";
+import { Viajero } from "./viajero";
 
 export class Reserva {
   id: number;

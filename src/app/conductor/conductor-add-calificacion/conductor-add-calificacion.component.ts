@@ -6,7 +6,7 @@ import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Calificacion } from '../calificacion';
 import { ConductorService } from '../conductor.service';
 import { Conductor } from '../../conductor/conductor';
-import { Viaje } from '../../viaje/viaje';
+import { Viaje } from '../../../classes/viaje';
 import { ViajeService } from '../../viaje/viaje.service';
 @Component({
   selector: 'app-conductor-add-calificacion',

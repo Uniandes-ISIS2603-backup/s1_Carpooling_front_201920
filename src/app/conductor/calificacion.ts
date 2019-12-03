@@ -1,5 +1,5 @@
 import { Conductor} from './conductor'
-import { Viaje } from '../viaje/viaje';
+import { Viaje } from '../../classes/viaje';
 
 export class Calificacion{
     id:number;

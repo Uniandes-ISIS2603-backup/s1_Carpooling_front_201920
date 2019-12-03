@@ -1,8 +1,8 @@
 import { Component, OnInit, Input , EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ViajeService } from '../viaje.service';
-import { Viaje } from '../viaje';
-import { Trayecto } from '../trayecto';
+import { Viaje } from '../../../classes/viaje';
+import { Trayecto } from '../../../classes/trayecto';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
