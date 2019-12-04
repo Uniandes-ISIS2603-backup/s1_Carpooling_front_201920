@@ -1,11 +1,8 @@
 import { OnInit, OnChanges, Component, Input, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, Params } from '@angular/router';
 import { ConductorService } from '../conductor.service';
 import { ConductorDetail } from '../conductor-detail';
-import { Conductor } from '../conductor';
 import { ConductorViajesComponent } from '../conductor-viajes/conductor-viajes.component';
-
 import {ConductorCalificacionComponent} from '../conductor-calificacion/conductor-calificacion.component';
 import {ConductorAddCalificacionComponent} from '../conductor-add-calificacion/conductor-add-calificacion.component';
 
@@ -15,8 +12,12 @@ import {ConductorAddCalificacionComponent} from '../conductor-add-calificacion/c
   styleUrls: ['./conductor-detail.component.css']
 })
 export class ConductorDetailComponent implements OnInit {
+
+  @Input() conductorId:number;
   
-  @Input() conductorDetail: ConductorDetail;
+  conductorDetail: ConductorDetail;
+
+  loader: any;
 
   crearCalificacion = false;
 
@@ -30,16 +31,29 @@ export class ConductorDetailComponent implements OnInit {
     private conductorService: ConductorService
   ) { }
 
-  conductor_id: number;
+  ngOnInit() {
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+  }
+
+  onLoad(params) {
+    this.conductorId = parseInt(params['id']);
+    this.conductorDetail = new ConductorDetail();
+    this.getConductorDetail();
+  }
+
+  getConductorDetail(): void{
+    this.conductorService.getConductorDetail(this.conductorId).subscribe(conductorDetail => {this.conductorDetail = conductorDetail});
+  }
+
+  ngOnDestroy() {
+    this.loader.unsubscribe();
+  }
 
   ActivarCrearCalificacion() : void{
     this.crearCalificacion = true;
   }
   DesactivarCrearCalificacion():void{
     this.crearCalificacion = false;
-  }
-  getConductorDetail(): void{
-    this.conductorService.getConductorDetail(this.conductorDetail.id).subscribe(conductorDetail => {this.conductorDetail = conductorDetail});
   }
 
   updateViajes():void{
@@ -53,9 +67,5 @@ export class ConductorDetailComponent implements OnInit {
     this.calificacionListComponent.isCollapsed = false;
     this.calificacionAddComponent.isCollapsed = true;
 }
-
-  ngOnInit() {
-    this.conductorDetail = new ConductorDetail();
-  }
 
 }

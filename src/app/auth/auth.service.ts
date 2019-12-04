@@ -25,9 +25,9 @@ export class AuthService {
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
-            this.setAdministratorRole();
+            ;
         } else {
-            this.setClientRole();
+            ;
         }
     }
 
@@ -36,16 +36,22 @@ export class AuthService {
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setClientRole (): void {
+    setViajeroRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('CLIENT', ['leave_review']);
-        localStorage.setItem('role', 'CLIENT');
+        this.roleService.addRole('VIAJERO', []);
+        localStorage.setItem('role', 'VIAJERO');
     }
 
-    setAdministratorRole (): void {
+    setConductorRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
-        localStorage.setItem('role', 'ADMIN');
+        this.roleService.addRole('CONDUCTOR', []);
+        localStorage.setItem('role', 'CONDUCTOR');
+    }
+
+    setPublicistaRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('PUBLICISTA', []);
+        localStorage.setItem('role', 'PUBLICISTA');
     }
 
     printRole (): void {
@@ -56,13 +62,21 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
-        if (role === 'Administrator') {
-            this.setAdministratorRole();
-        } else {
-            this.setClientRole()
+    login (role:string): void {
+        if (role == "Viajero") {
+            this.setViajeroRole()
+        } 
+        else if( role == "Conductor") {
+            this.setConductorRole()
+        }
+        else if( role == "Publicista") {
+            this.setPublicistaRole()
         }
         this.router.navigateByUrl('/');
+    }
+
+    setId (id:number): void {
+        localStorage.setItem('id', id+"");
     }
 
     /**

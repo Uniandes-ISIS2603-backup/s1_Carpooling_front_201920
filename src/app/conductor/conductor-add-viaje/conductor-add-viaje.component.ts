@@ -2,9 +2,9 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Vehiculo } from '../vehiculo';
 import { ConductorService } from '../conductor.service';
-import { Viaje } from '../../viaje/viaje';
-import { ViajeDetail } from '../../viaje/viaje-detail';
-import { EstadoDeViaje} from '../../viaje/estado-de-viaje.enum';
+import { Viaje } from '../../../classes/viaje';
+import { ViajeDetail } from '../../../classes/viaje-detail';
+import { EstadoDeViaje} from '../../../enums/estado-de-viaje.enum';
 
 @Component({
   selector: 'app-conductor-add-viaje',

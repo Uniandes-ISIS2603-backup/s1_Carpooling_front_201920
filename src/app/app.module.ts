@@ -19,6 +19,7 @@ import { ViajeroModule } from './viajero/viajero.module';
 import { PublicistaModule } from './publicista/publicista.module';
 import { ConductorModule} from './conductor/conductor.module';
 import { NotificacionModule} from './notificacion/notificacion.module';
+import { PrincipalComponent } from './principal/principal.component';
 
 
 
@@ -26,7 +27,8 @@ import { NotificacionModule} from './notificacion/notificacion.module';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        PrincipalComponent
     ],
     imports: [
         BrowserModule,

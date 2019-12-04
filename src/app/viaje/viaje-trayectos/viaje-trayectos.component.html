@@ -1,3 +1,21 @@
-<p>
-  viaje-trayectos works!
-</p>
+<h1>Trayectos:</h1>
+<table class="table table-striped table-sm">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Origen</th>
+      <th scope="col">Destino</th>
+      <th scope="col">Duracion</th>
+      <th scope="col">Costo Combustible</th>
+      <th scope="col">Numero de Peajes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of trayectos">
+      <td>{{t.origen}}</td>
+      <td>{{t.destino}}</td>
+      <td>{{t.duracion}}</td>
+      <td>{{t.costoCombustible}}</td>
+      <td>{{t.numPeajes}}</td>
+    </tr>
+  </tbody>
+</table>
