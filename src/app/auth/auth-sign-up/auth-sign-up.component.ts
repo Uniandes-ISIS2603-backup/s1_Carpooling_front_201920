@@ -24,6 +24,7 @@ export class AuthSignUpComponent implements OnInit {
     user: User;
 
     roles: string[];
+    tipoDocumentos: string[];
 
     /**
     * Sign the user up with the selected role
@@ -38,7 +39,7 @@ export class AuthSignUpComponent implements OnInit {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['Administrator', 'Client'];
+        this.roles = ['Publicista', 'Conductor', 'Viajero'];
+        this.tipoDocumentos= ["CEDULA_DE_CIUDADANA","CEDULA_DE_EXTRANJAERIA","TARJETA_DE_IDENTIDAD","PASAPORTE"];
     }
-
 }
