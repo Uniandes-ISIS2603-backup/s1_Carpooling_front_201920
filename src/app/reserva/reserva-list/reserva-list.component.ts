@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Reserva } from '../reserva';
+import { ReservaService } from "../reserva.service";
+import { Router, ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'app-reserva-list',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservaListComponent implements OnInit {
 
-  constructor() { }
+    constructor(private reservaService:ReservaService, private router: Router,
+  ) { }
+
+  reservas: Reserva[];
+
+    getReservas(){
+    this.reservaService.getReservas().subscribe(reservas => this.reservas = reservas);
+    //this.poder = 5;
+    }
 
   ngOnInit() {
+    this.getReservas();
+
   }
 
 }

@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ViajeService } from '../viaje.service'
-import { ViajeDetail } from '../viaje-detail';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Trayecto } from '../trayecto';
+import { ViajeDetail } from '../../../classes/viaje-detail';
 
 @Component({
   selector: 'app-viaje-detail',
@@ -12,30 +10,16 @@ import { Trayecto } from '../trayecto';
 })
 export class ViajeDetailComponent implements OnInit {
 
-  trayectoForm:FormGroup;
-
-  constructor(
-    private viajeService:ViajeService,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder
-  ) { 
-    this.trayectoForm=this.formBuilder.group({
-      numPeajes: ["", Validators.required],
-      duracion: ["", Validators.required],
-      costoCombustible: ["", Validators.required],
-      origen: ["", Validators.required],
-      destino: ["", Validators.required]
-    });
-  }
+  @Input() viajeId:number;
 
   viajeDetail: ViajeDetail;
 
-  @Input() viajeId:number;
-
   loader: any;
 
-  getViajeDetail():void {
-    this.viajeService.getViajeDetail(this.viajeId).subscribe(viajeDetail=>{this.viajeDetail=viajeDetail});
+  constructor(
+    private viajeService:ViajeService,
+    private route: ActivatedRoute
+  ) { 
   }
 
   ngOnInit() {
@@ -43,22 +27,23 @@ export class ViajeDetailComponent implements OnInit {
   }
 
   onLoad(params) {
-
     this.viajeId = parseInt(params['id']);
     console.log(" en detail " + this.viajeId);
     this.viajeDetail = new ViajeDetail();
     this.getViajeDetail();
   }
 
+  getViajeDetail():void {
+    this.viajeService.getViajeDetail(this.viajeId).subscribe(viajeDetail=>{this.viajeDetail=viajeDetail});
+  }
+  
   ngOnDestroy() {
     this.loader.unsubscribe();
   }
 
-  createTrayecto(newTrayecto: Trayecto) {
-    // Process checkout data here
-    console.warn("Your order has been submitted", newTrayecto);
+  updateTrayectos():void{
+    this.getViajeDetail();
 
-   this.trayectoForm.reset();
   }
 
 }

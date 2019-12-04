@@ -1,16 +1,33 @@
 <div class="container-fluid">
-  <div class="col-md-2">
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>Reserva List Primitive</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
+	<div class= "row">
+		<div class="col-md-4">
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>#</th>
+          	<th>numero de reserva</th>
+			<th>Ver Info</th>
+			
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor=" let i of reservas">
+					<td style="cursor: pointer;">
+						{{i.id}}
+					</td>
+					<td>
+						{{i.numeroDeReserva}}
+					</td>
+					<td>
+						
+							<a routerLink="/reservas/{{i.id}}" routerLinkActive="activeLink"><button>detalle</button></a>
+								
+					</td>
 
-        </tr>
-      </tbody>
-    </table>
-  </div>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>
+</div>

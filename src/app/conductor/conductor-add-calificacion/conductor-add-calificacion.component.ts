@@ -1,49 +1,65 @@
 
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Calificacion } from '../calificacion';
 import { ConductorService } from '../conductor.service';
 import { Conductor } from '../../conductor/conductor';
+import { Viaje } from '../../../classes/viaje';
+import { ViajeService } from '../../viaje/viaje.service';
 @Component({
   selector: 'app-conductor-add-calificacion',
   templateUrl: './conductor-add-calificacion.component.html',
   styleUrls: ['./conductor-add-calificacion.component.css']
 })
-export class ConductorAddCalificacionComponent implements OnInit, OnChanges  {
+export class ConductorAddCalificacionComponent implements OnInit  {
+
+  calificacionForm: FormGroup;
+  @Input() idConductor: number;
+  @Output() updateCalificaciones = new EventEmitter();
+  viaje :Viaje;
+  viajes : Viaje[];
+  tieneViaje = false;
 
   constructor(private conductorService: ConductorService,
-    private toastrService: ToastrService) 
+   private formBuilder: FormBuilder, viajeService: ViajeService) 
     {
-     }
+      viajeService.getViajes().subscribe(viajes => this.viajes = viajes);
+      this.calificacionForm = this.formBuilder.group({
+        puntuacion: ["", Validators.required],
+        comentarios: ["", Validators.required],
+     });
+    }
 
-     @Input() conductor: Conductor;
+    isCollapsed = false;
 
-     calificacion : Calificacion;
-     public isCollapsed = true;
-    
+    seleccionarViaje( viaje:Viaje)
+    {
+      this.viaje = viaje;
+      this.tieneViaje = true;
+    }
 
-     @Output() updateReviews = new EventEmitter();
 
-     postCalificacion(calificacionForm: NgForm): Calificacion {
-      this.calificacion.conductor = this.conductor;
-      this.conductorService.createCalificacion(this.conductor.id,this.calificacion)
+
+     postCalificacion(newCalificacion: Calificacion) {
+      console.warn("Your order has been submitted", newCalificacion);
+      newCalificacion.viaje = this.viaje;
+      this.conductorService.createCalificacion(this.idConductor,newCalificacion)
           .subscribe(() => {
-              calificacionForm.resetForm();
-              this.updateReviews.emit();
-              this.toastrService.success("The calificacion was successfully created", 'Calificacion added');
-          }, err => {
-              this.toastrService.error(err, 'Error');
+              this.calificacionForm.reset();
+              this.updateCalificaciones.emit();
           });
-      return this.calificacion;
+          this.viaje = null;
+          this.tieneViaje = false;
+      
   }
 
   ngOnInit() {
-    this.calificacion = new Calificacion();
+    
   }
 
   ngOnChanges() {
-    this.ngOnInit();
+   
 }
-} 
+}

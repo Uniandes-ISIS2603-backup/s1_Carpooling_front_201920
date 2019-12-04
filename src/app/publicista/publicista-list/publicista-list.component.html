@@ -1,0 +1,72 @@
+<div class="container-fluid">
+		
+	<div class="row">
+		<div class="col">
+				
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Ver Detalle</th> 
+						<th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+						<th>Cedula</th>
+            <th>Contraseña</th>
+            <th>rut</th>
+            <th>nit</th>
+						<th>Tipo de Publicista</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let i of publicistas">
+						<td style="cursor: pointer;">
+							<a routerLink="/publicistas/{{i.id}}" routerLinkActive="activeLink"><button>detalle</button></a>
+						</td>
+
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.nombre}}</a>
+            </td>
+            <td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.apellido}}</a>
+            </td>
+            <td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.telefono}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.correo}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.cedula}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.contrasenha}}</a>
+						</td>					
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.rut}}</a>
+            </td>
+            <td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.nit}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.tipoPublicista}}</a>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+			<div class="row justify-content-center align-self-center" >
+					<button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+						(click)="showHideCreate()">Crear un publicista</button>
+				</div>
+				<br>
+				<br>
+		</div>	
+			<div class="col-8">
+					<div *ngIf="showCreate">
+						<app-publicista-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-publicista-create>
+					</div>
+				</div> 
+
+		</div>
+	</div>

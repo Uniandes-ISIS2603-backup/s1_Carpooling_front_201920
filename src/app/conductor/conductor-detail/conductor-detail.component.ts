@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { OnInit, OnChanges, Component, Input, ViewChild } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ConductorService } from '../conductor.service';
-import { Conductor } from '../conductor';
 import { ConductorDetail } from '../conductor-detail';
+import { ConductorViajesComponent } from '../conductor-viajes/conductor-viajes.component';
+import {ConductorCalificacionComponent} from '../conductor-calificacion/conductor-calificacion.component';
+import {ConductorAddCalificacionComponent} from '../conductor-add-calificacion/conductor-add-calificacion.component';
 
 @Component({
   selector: 'app-conductor-detail',
@@ -11,23 +13,59 @@ import { ConductorDetail } from '../conductor-detail';
 })
 export class ConductorDetailComponent implements OnInit {
 
-  constructor(
-    private conductorService: ConductorService,
-    private route: ActivatedRoute
-  ) { }
-
+  @Input() conductorId:number;
+  
   conductorDetail: ConductorDetail;
 
-  conductor_id: number;
+  loader: any;
 
-  getConductorDetail(): void {
-    this.conductorService.getConductorDetail(this.conductor_id).subscribe(elDetalle => {this.conductorDetail = elDetalle});
-  }
+  crearCalificacion = false;
+
+  public isCollapsed = true;
+  
+  @ViewChild(ConductorViajesComponent) conductorViajesComponent: ConductorViajesComponent;
+  @ViewChild(ConductorCalificacionComponent) calificacionListComponent: ConductorCalificacionComponent;
+  @ViewChild(ConductorAddCalificacionComponent) calificacionAddComponent: ConductorAddCalificacionComponent;
+  constructor(
+    private route: ActivatedRoute,
+    private conductorService: ConductorService
+  ) { }
 
   ngOnInit() {
-    this.conductor_id= +this.route.snapshot.paramMap.get('id');
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+  }
+
+  onLoad(params) {
+    this.conductorId = parseInt(params['id']);
     this.conductorDetail = new ConductorDetail();
     this.getConductorDetail();
   }
+
+  getConductorDetail(): void{
+    this.conductorService.getConductorDetail(this.conductorId).subscribe(conductorDetail => {this.conductorDetail = conductorDetail});
+  }
+
+  ngOnDestroy() {
+    this.loader.unsubscribe();
+  }
+
+  ActivarCrearCalificacion() : void{
+    this.crearCalificacion = true;
+  }
+  DesactivarCrearCalificacion():void{
+    this.crearCalificacion = false;
+  }
+
+  updateViajes():void{
+    this.getConductorDetail();
+    this.conductorViajesComponent.updateViajes(this.conductorDetail.viajes);
+  }
+
+  updateCalificaciones(): void {
+    this.getConductorDetail();
+    this.calificacionListComponent.updateCalificaciones(this.conductorDetail.calificaciones);
+    this.calificacionListComponent.isCollapsed = false;
+    this.calificacionAddComponent.isCollapsed = true;
+}
 
 }

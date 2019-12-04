@@ -1,0 +1,64 @@
+<div class="container-fluid">
+		
+	<div class="row">
+		<div class="col">
+				
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Ver Detalle</th> 
+						<th>Nombre</th>
+						<th>correo</th>
+						<th>Numero De Documento</th>
+						<th>Contraseña</th>
+						<th>Telefono</th>
+						<th>Fecha de Nacimiento</th>
+						<th>Tipo de Documento</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let i of viajeros">
+						<td style="cursor: pointer;">
+							<a routerLink="/viajeros/{{i.id}}" routerLinkActive="activeLink"><button>detalle</button></a>
+						</td>
+
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.nombre}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.correo}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.numDocumento}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.contrasenha}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.telefono}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.fechaDeNacimiento}}</a>
+						</td>
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.tipoDocumento}}</a>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+			<div class="row justify-content-center align-self-center" >
+					<button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+						(click)="showHideCreate()">Crear un viajero</button>
+				</div>
+				<br>
+				<br>
+		</div>	
+			<div class="col-8">
+					<div *ngIf="showCreate">
+						<app-viajero-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-viajero-create>
+					</div>
+				</div> 
+
+		</div>
+	</div>

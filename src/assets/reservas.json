@@ -1,0 +1,31 @@
+
+[
+{
+  "id": 1,
+  "numeroDeReserva": "12312431",
+  "confirmacion": "si",
+  "fecha": "8-11-2019",
+  "estado": "retrasado"
+},
+{
+  "id": 2,
+  "numeroDeReserva": "12wedfwe312431",
+  "confirmacion": "ah",
+  "fecha":"14-11-2019",
+  "estado": "al dia"
+},
+{
+  "id": 3,
+  "numeroDeReserva": "1231wefvcvs2431",
+  "confirmacion": "no",
+  "fecha": "9-11-2019",
+  "estado": "al dia"
+},
+{
+  "id": 4,
+  "numeroDeReserva": "cdgtrg12312431",
+  "confirmacion": "uh",
+  "fecha": "7-11-2019",
+  "estado": "en camino"
+}
+]

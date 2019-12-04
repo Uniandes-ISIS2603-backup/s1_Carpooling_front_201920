@@ -1,0 +1,51 @@
+<form [formGroup]="conductorForm" (ngSubmit)="createConductor(conductorForm.value)">
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="nombre">
+			Nombre
+		</label>
+		<input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Nombre completo">
+	</div>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="telefono">
+			Telefono
+		</label>
+		<input novalidate id="telefono" class="form-control" formControlName="telefono"
+			placeholder="Numero de telefono">
+	</div>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="numDocumento">
+			Numero de Documento
+		</label>
+		<input novalidate id="numDocumento" class="form-control" formControlName="numDocumento"
+			placeholder="Numero de doc">
+	</div>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="tipoDocumento">
+			Tipo de Documento
+		</label>
+		<input novalidate id="tipoDocumento" class="form-control" formControlName="tipoDocumento"
+			placeholder="Tipo de documento">
+	</div>
+	<div class="form-group mx-sm-3 mb-2">
+			<label for="otraFecha">
+				Fecha de Nacimiento
+			</label>
+			<br>
+			<input novalidate id="otraFecha" clase="form-control" formControlName="otraFecha" placeholder="YYYY-MM-DD">
+		</div>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="correo">
+			Correo electronico
+		</label>
+		<br>
+		<input novalidate id="correo" clase="form-control" formControlName="correo" placeholder="Correo Electronico">
+	</div>
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="contrasenha">
+			Contraseña
+		</label>
+		<br>
+		<input novalidate id="contrasenha" clase="form-control" formControlName="contrasenha" placeholder="Contrasenha">
+	</div>
+	<button class="button mx-sm-3 mb-2" type="submit" [disabled]="clientForm.invalid">Crear</button>
+</form>

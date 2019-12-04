@@ -9,7 +9,9 @@
             <h5>Cupos: {{viajeDetail.cupos}}</h5>
             <h5>Costo: {{viajeDetail.costoViaje}}</h5>
             <h5>Estado: {{viajeDetail.estadoViaje}}</h5>
-            <button type="button" class="btn btn-success btn-lg btn-block">Reservar</button>
+            <h5>Vehiculo: {{viajeDetail.vehiculo.placa}}</h5>
+           <!--button type="button" class="btn btn-success btn-lg btn-block">Reservar</button-->
+            <app-reserva-create [idViaje]='viajeDetail.id'></app-reserva-create>
         </div>
         <div class="col-md-8">
             <h1>Trayectos:</h1>
@@ -33,7 +35,8 @@
                     </tr>
                 </tbody>
             </table>
-            <app-viaje-add-trayecto [idViaje]='viajeDetail.id'></app-viaje-add-trayecto>
+            <app-viaje-add-trayecto [idViaje]='viajeDetail.id' (updateTrayectos)="updateTrayectos()"></app-viaje-add-trayecto>
+           
         </div>
     </div>
     <div class="row">
