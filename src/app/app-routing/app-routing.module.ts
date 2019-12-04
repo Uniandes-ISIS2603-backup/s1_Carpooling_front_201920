@@ -15,6 +15,8 @@ import { ConductorListaComponent } from '../conductor/conductor-lista/conductor-
 import { PublicistaDetailComponent } from '../publicista/publicista-detail/publicista-detail.component';
 import { PublicistaListComponent } from '../publicista/publicista-list/publicista-list.component';
 import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
+import { ConductorAddViajeComponent } from '../conductor/conductor-add-viaje/conductor-add-viaje.component';
+import { PrincipalComponent } from '../principal/principal.component'
 
 const routes: Routes = [
 
@@ -110,9 +112,29 @@ const routes: Routes = [
           {
             path: ':id',
             component: ViajeDetailComponent
+          },
+          {
+            path: 'add',
+            children:[{
+              path: ':conductorId',
+              component: ConductorAddViajeComponent,
+              outlet: 'formulario'
+            }
+            ]
           }
           ]
+    },
+    {
+      path: 'home',
+      component : PrincipalComponent
     }
+    ,
+    {
+      path: '**',
+      redirectTo: 'home'
+    }
+
+
 
 ];
 
