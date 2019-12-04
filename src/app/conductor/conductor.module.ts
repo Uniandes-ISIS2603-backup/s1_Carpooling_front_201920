@@ -24,6 +24,6 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
   declarations: [ConductorListaComponent, ConductorDetailComponent, ConductorCreateComponent, ConductorViajesComponent, ConductorAddViajeComponent, ConductorCalificacionComponent,
     ConductorAddCalificacionComponent],
   providers: [ConductorService],
-  exports: [ConductorListaComponent, ConductorCreateComponent, ReactiveFormsModule, FormsModule, ConductorAddViajeComponent, ConductorAddCalificacionComponent ]
+  exports: [ConductorListaComponent, ConductorCreateComponent, ReactiveFormsModule, FormsModule, ConductorAddViajeComponent, ConductorAddCalificacionComponent]
 })
 export class ConductorModule { }
