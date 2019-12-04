@@ -8,7 +8,7 @@ import { Trayecto } from '../../../classes/trayecto';
 })
 export class ViajeTrayectosComponent implements OnInit {
 
-  trayectos:Trayecto[];
+  @Input() trayectos:Trayecto[];
 
   ngOnInit() {
   }
