@@ -52,15 +52,22 @@
 	</ul>
 	<div class="navbar-collapse collapse order-3 dual-collapse2">
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<a class="nav-link" routerLink="/auth/login" routerLinkActive="active">Login</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" routerLink="/auth/sign-up" routerLinkActive="active">Sign Up</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" (click)="logout()">Logout</a>
-			</li>
+			<div *ngIf="roleGuest()">
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/auth/login" routerLinkActive="active">Login</a>
+				</li>
+			</div>
+			<div *ngIf="roleGuest()">
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/auth/sign-up" routerLinkActive="active">Sign Up</a>
+				</li>
+			</div>
+			<div *ngIf="!roleGuest()">
+				<li class="nav-item">
+					<a class="nav-link" (click)="logout()">Logout</a>
+				</li>
+			</div>
+
 		</ul>
 	</div>
 </nav>
