@@ -1,9 +1,10 @@
-import { Component, OnInit, Input , EventEmitter, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
 import { ViajeService } from '../viaje.service';
-import { Viaje } from '../../../classes/viaje';
 import { Trayecto } from '../../../classes/trayecto';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute, Params } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viaje-add-trayecto',
@@ -14,12 +15,15 @@ export class ViajeAddTrayectoComponent implements OnInit {
 
   trayectoForm: FormGroup;
 
-  @Input() idViaje:number;
+  loader: any;
 
-  @Output() updateTrayectos = new EventEmitter();
+  @Input() idViaje: number;
 
   constructor(private viajeService: ViajeService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private toastrService: ToastrService,
+    private router: Router
   ) {
     this.trayectoForm = this.formBuilder.group({
       origen: ["", Validators.required],
@@ -34,14 +38,23 @@ export class ViajeAddTrayectoComponent implements OnInit {
   postTrayecto(newTrayecto: Trayecto) {
     console.warn("Your order has been submitted", newTrayecto);
     this.viajeService.createTrayecto(this.idViaje, newTrayecto).subscribe(
-      ()=>{
+      () => {
         this.trayectoForm.reset();
-        this.updateTrayectos.emit();
+        this.router.navigateByUrl('/viajes/' + this.idViaje);
+        this.toastrService.success("El trayecto fue creado.", "Creacion trayecto");
+      }, err => {
+        this.toastrService.error(err, 'Error');
       });
   }
 
   ngOnInit() {
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
+
+  onLoad(params) {
+    this.idViaje = parseInt(params['idViaje']);
+  }
+
 
   ngOnChanges() {
   }
