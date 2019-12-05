@@ -40,6 +40,28 @@
                     <option [value]="role" *ngFor="let role of roles">{{role}}</option>
                 </select>
             </div>
+
+                <div *ngIf="user.role=='Publicista'">
+                    <div class="form-group">
+                        <label for="apellido"><b>Apellido</b></label>
+                        <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="publicista.apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nit"><b>NIT</b></label>
+                        <input type="text" name="nit" class="form-control" id="nit" [(ngModel)]="publicista.nit" >
+                    </div>
+                    <div class="form-group">
+                        <label for="rut"><b>RUT</b></label>
+                        <input type="text" name="rut" class="form-control" id="rut" [(ngModel)]="publicista.rut" >
+                    </div>
+                    <div class="form-group">
+                <label for="TIPOPUBLICISTA"><b>Tipo de Publicista</b></label>
+                <select class="custom-select" name="TIPOPUBLICISTA" id="TIPOPUBLICISTA" [(ngModel)]="publicista.tipoPublicista" required>
+                    <option [value]="TIPOPUBLICISTA" *ngFor="let TIPOPUBLICISTA of tipoPublicistas">{{TIPOPUBLICISTA}}</option>
+                </select>
+            </div>
+                </div>
+            
             <div class="justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary"> Sign Up</button>
             </div>
