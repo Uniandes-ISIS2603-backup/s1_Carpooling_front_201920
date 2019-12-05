@@ -1,7 +1,7 @@
 import { Viaje } from './viaje'
-import { Reserva } from '../reserva/reserva';
 import { Calificacion } from './calificacion';
 import { Trayecto } from './trayecto';
+import { Reserva } from './reserva';
 
 
 export class ViajeDetail extends Viaje{

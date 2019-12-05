@@ -61,9 +61,6 @@ toggleCreateCalificacion(): void {
   this.calificacionAddComponent.isCollapsed = !this.calificacionAddComponent.isCollapsed;
 }
 
-
-
-
   /**
   * The method which retrieves the viajeros of an editorial
   */

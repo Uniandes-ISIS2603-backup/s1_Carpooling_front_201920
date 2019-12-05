@@ -1,0 +1,4 @@
+export enum TipoPublicista {
+    PERSONA_NATURAL_CON_EMPRESA="PERSONA_NATURAL_CON_EMPRESA",
+    EMPRESA="EMPRESA"
+}

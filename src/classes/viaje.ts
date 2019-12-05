@@ -1,5 +1,6 @@
-import { Vehiculo } from "../conductor/vehiculo";
-import { EstadoDeViaje } from "./estado-de-viaje.enum";
+
+import { EstadoDeViaje } from "../enums/estado-de-viaje.enum";
+import { Vehiculo } from "./vehiculo";
 
 export class Viaje {
     id: number;

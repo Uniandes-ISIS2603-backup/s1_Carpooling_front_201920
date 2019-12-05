@@ -1,80 +1,56 @@
 <div class="container-fluid">
-	<div *ngIf="!mostrarDetalle">
-		<div class="row">
-			<div class="col">
+	<div class="row">
+		<div class="col">
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Nombre</th>
+						<th>Correo Electronico</th>
+						<th>Numero De Documento</th>
+						<th>Contraseña</th>
+						<th>Telefono</th>
+						<th>Fecha de Nacimiento</th>
+						<th>Tipo de Documento</th>
+						<th>Boton Detalle</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let i of conductores">
 
-				<table class="table table-striped">
-					<thead class="thead-dark">
-						<tr>
-							<th>Nombre</th>
-							<th>Correo Electronico</th>
-							<th>Numero De Documento</th>
-							<th>Contraseña</th>
-							<th>Telefono</th>
-							<th>Fecha de Nacimiento</th>
-							<th>Tipo de Documento</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let i of conductores">
-
-							<td style="cursor: pointer;">
-								<dd (click)="onSelected(i.id)" routerLinkActive="active-link">{{i.nombre}}</dd>
-							</td>
-							<td style="cursor: pointer;">
-								<a class="figure-caption" (click)="onSelected(i.id)">{{i.correo}}</a>
-							</td>
-							<td style="cursor: pointer;">
-								<a class="figure-caption" (click)="onSelected(i.id)">{{i.numDocumento}}</a>
-							</td>
-							<td style="cursor: pointer;">
-								<a class="figure-caption" (click)="onSelected(i.id)">{{i.contrasenha}}</a>
-							</td>
-							<td style="cursor: pointer;">
-								<a class="figure-caption" (click)="onSelected(i.id)">{{i.telefono}}</a>
-							</td>
-							<td style="cursor: pointer;">
-								<a class="figure-caption" (click)="onSelected(i.id)">{{i.fechaDeNacimiento}}</a>
-							</td>
-							<td style="cursor: pointer;">
-								<a class="figure-caption" (click)="onSelected(i.id)">{{i.tipoDocumento}}</a>
-							</td>
-
-						</tr>
-					</tbody>
-				</table>
-
-			</div>
-		</div>
-
-		<div class="row">
-			<td style="cursor: pointer">
-				<button type="button" class="btn btn-primary" (click)="mostrarFormulario()">Crear Conductor</button>
-			</td>
-		</div>
-		<div class="row">
-			<div *ngIf="mostrarForm">
-				<app-conductor-create></app-conductor-create>
-			</div>
-		</div>
-		<div class="row">
-
-			<td style="cursor: pointer">
-				<div *ngIf="mostrarForm">
-					<button type="button" class="btn btn-danger" (click)="ocultarFormulario()">Cancelar</button>
-				</div>
-			</td>
+						<td>{{i.nombre}}</td>
+						<td>{{i.correo}}</td>
+						<td>{{i.numDocumento}}</td>
+						<td>{{i.contrasenha}}</td>
+						<td>{{i.telefono}}</td>
+						<td>{{i.fechaDeNacimiento}}</td>
+						<td>{{i.tipoDocumento}}</td>
+						<td> 
+							<a class="btn btn-primary" routerLink="/conductores/{{i.id}}">Ver Detalle</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 
 		</div>
 	</div>
-	<div *ngIf="mostrarDetalle">
-		<div class="row">
-			<td style="cursor: pointer">
-				<button type="button" class="btn btn-primary" (click)="cambioDetalle()">Volver</button>
-			</td>
+
+	<div class="row">
+		<td style="cursor: pointer">
+			<button type="button" class="btn btn-primary" (click)="mostrarFormulario()">Crear Conductor</button>
+		</td>
+	</div>
+	<div class="row">
+		<div *ngIf="mostrarForm">
+			<app-conductor-create></app-conductor-create>
 		</div>
-		<div class="row">
-				<app-conductor-detail [conductorDetail]="selectedConductor"></app-conductor-detail>
-		</div>
+	</div>
+	<div class="row">
+
+		<td style="cursor: pointer">
+			<div *ngIf="mostrarForm">
+				<button type="button" class="btn btn-danger" (click)="ocultarFormulario()">Cancelar</button>
+			</div>
+		</td>
+
 	</div>
 </div>

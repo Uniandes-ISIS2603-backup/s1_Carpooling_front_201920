@@ -1,10 +1,13 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Vehiculo } from '../vehiculo';
 import { ConductorService } from '../conductor.service';
-import { Viaje } from '../../viaje/viaje';
-import { ViajeDetail } from '../../viaje/viaje-detail';
-import { EstadoDeViaje} from '../../viaje/estado-de-viaje.enum';
+import { ViajeDetail } from '../../../classes/viaje-detail';
+import { EstadoDeViaje} from '../../../enums/estado-de-viaje.enum';
+import { ActivatedRoute, Params } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { Vehiculo } from '../../../classes/vehiculo'
+import { ConductorDetail } from '../../../classes/conductor-detail';
 
 @Component({
   selector: 'app-conductor-add-viaje',
@@ -17,12 +20,15 @@ export class ConductorAddViajeComponent implements OnInit {
 
   @Input() conductorId: number;
 
-  @Input() vehiculos: Vehiculo[];
+  conductor: ConductorDetail;
 
-  @Output() updateViajes = new EventEmitter();
+  loader:any;
 
   constructor(private conductorService: ConductorService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private toastrService: ToastrService,
+    private router: Router) {
     this.viajeForm = this.formBuilder.group({
       origen: ["", Validators.required],
       destino: ["", Validators.required],
@@ -30,21 +36,34 @@ export class ConductorAddViajeComponent implements OnInit {
       fechaDeLlegada: ["", Validators.required],
       cupos: ["", Validators.required],
       costoViaje: ["", Validators.required],
-      vehiculo: ["",]
+      vehiculo: ["",Validators.required]
     });
     console.log(this.conductorId)
   }
 
   postViaje(newViaje: ViajeDetail):void{
     newViaje.estadoViaje=EstadoDeViaje.PUBLICADO;
+    newViaje.fechaDeLlegada = newViaje.fechaDeLlegada + "T00:00:00-05:00";
+    newViaje.fechaDeSalida = newViaje.fechaDeSalida + "T00:00:00-05:00";
     this.conductorService.createViaje(newViaje, this.conductorId, newViaje.vehiculo.id).subscribe(
       ()=>{
         this.viajeForm.reset();
-        this.updateViajes.emit();
+        this.router.navigateByUrl('/conductores/'+this.conductorId);
+        this.toastrService.success("El viaje fue creado.", "Creacion viaje");
+      }, err => {
+        this.toastrService.error(err, 'Error');
       });
   }
 
   ngOnInit() {
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    this.conductor = new ConductorDetail();
+    this.conductorService.getConductorDetail(this.conductorId).subscribe(conductorDetail => {this.conductor = conductorDetail});
+  
   }
+
+  onLoad(params) {
+    this.conductorId = parseInt(params['idConductor']);
+    }
 
 }
