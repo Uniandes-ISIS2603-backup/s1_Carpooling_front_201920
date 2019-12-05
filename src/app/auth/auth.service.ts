@@ -20,12 +20,12 @@ export class AuthService {
     start (): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['ADMIN','VIAJERO', 'CONDUCTOR', 'PUBLICISTA']);
+        this.permissionsService.loadPermissions([]);
         const role = localStorage.getItem('role');
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
-            ;
+            this.setAdministradorRole;
         } else if(role == 'VIAJERO'){
             this.roleService;
         }

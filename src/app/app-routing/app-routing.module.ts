@@ -17,6 +17,7 @@ import { PublicistaListComponent } from '../publicista/publicista-list/publicist
 import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
 import { ConductorAddViajeComponent } from '../conductor/conductor-add-viaje/conductor-add-viaje.component';
 import { PrincipalComponent } from '../principal/principal.component'
+import { ViajeAddTrayectoComponent } from '../viaje/viaje-add-trayecto/viaje-add-trayecto.component';
 
 const routes: Routes = [
 
@@ -63,7 +64,7 @@ const routes: Routes = [
       canActivate: [NgxPermissionsGuard],
       data: {
         permissions: {
-          only: ['ADMIN','VIAJERO']
+          only: ['ADMIN', 'VIAJERO']
         }
       }
     }
@@ -87,7 +88,7 @@ const routes: Routes = [
       canActivate: [NgxPermissionsGuard],
       data: {
         permissions: {
-          only: ['ADMIN','PUBLICISTA']
+          only: ['ADMIN', 'PUBLICISTA']
         }
       }
     }
@@ -111,7 +112,7 @@ const routes: Routes = [
       canActivate: [NgxPermissionsGuard],
       data: {
         permissions: {
-          only: ['ADMIN','CONDUCTOR']
+          only: ['ADMIN', 'CONDUCTOR']
         }
       }
     }
@@ -125,7 +126,7 @@ const routes: Routes = [
       canActivate: [NgxPermissionsGuard],
       data: {
         permissions: {
-          only: ['ADMIN','CONDUCTOR', 'VIAJERO']
+          only: ['ADMIN', 'CONDUCTOR', 'VIAJERO', 'PUBLICISTA']
         }
       }
     }
@@ -139,7 +140,7 @@ const routes: Routes = [
       canActivate: [NgxPermissionsGuard],
       data: {
         permissions: {
-          only: ['ADMIN','VIAJERO']
+          only: ['ADMIN', 'VIAJERO']
         }
       }
     },
@@ -149,7 +150,7 @@ const routes: Routes = [
       canActivate: [NgxPermissionsGuard],
       data: {
         permissions: {
-          only: ['ADMIN','GUEST']
+          only: ['ADMIN', 'VIAJERO', 'CONDUCTOR']
         }
       }
     }
@@ -164,7 +165,7 @@ const routes: Routes = [
         canActivate: [NgxPermissionsGuard],
         data: {
           permissions: {
-            only: ['ADMIN','GUEST', 'VIAJERO']
+            only: ['ADMIN', 'GUEST', 'VIAJERO']
           }
         }
       },
@@ -174,18 +175,38 @@ const routes: Routes = [
         canActivate: [NgxPermissionsGuard],
         data: {
           permissions: {
-            only: ['ADMIN','GUEST', 'VIAJERO']
+            only: ['ADMIN', 'GUEST', 'VIAJERO', 'CONDUCTOR']
           }
         }
       },
       {
         path: 'add',
         children: [{
-          path: ':conductorId',
+          path: ':idViaje',
           component: ConductorAddViajeComponent,
+          canActivate: [NgxPermissionsGuard],
+          data: {
+            permissions: {
+              only: ['ADMIN', 'CONDUCTOR']
+            }
+          }
         }
         ]
       }
+    ]
+  },
+  {
+    path: 'trayectos',
+    children: [{
+      path: 'add/:idViaje',
+      component: ViajeAddTrayectoComponent,
+      canActivate: [NgxPermissionsGuard],
+      data: {
+        permissions: {
+          only: ['ADMIN', 'CONDUCTOR']
+        }
+      }
+    }
     ]
   },
   {
