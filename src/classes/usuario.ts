@@ -1,4 +1,4 @@
-import { TipoDeDocumento } from '../enums/tipo-de-documento.enum';
+import { TIPODEDOCUMENTO } from '../enums/tipo-de-documento.enum';
 
 
 export class Usuario {
@@ -7,7 +7,7 @@ export class Usuario {
   telefono: string;
   correo: string;
   contrasenha: string;
-  tipoDocumento: TipoDeDocumento;
+  tipoDocumento: TIPODEDOCUMENTO;
   numDocumento: string;
   fechaDeNacimiento: string;
   otraFecha: string;
