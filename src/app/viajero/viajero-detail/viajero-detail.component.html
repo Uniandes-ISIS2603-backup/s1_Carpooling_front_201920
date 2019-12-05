@@ -4,15 +4,15 @@
         <div class="card-body">
           <h5 class="card-title">Perfil</h5>
           <form>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Nombre</label>
+                <div  class="form-group">
+                    <label  for="formGroupExampleInput">Nombre</label>
                     <input class="form-control" id="disabledInput" type="text" placeholder="{{viajeroDetail.nombre}}" disabled>
                 </div>
-                <div class="form-group">
+                <div *ngIf ="!rolConductor()" class="form-group">
                     <label for="formGroupExampleInput">Número de Documento</label>
                     <input class="form-control" id="disabledInput" type="text" placeholder="{{viajeroDetail.numDocumento}}" disabled>
                 </div>
-                <div class="form-group">
+                <div *ngIf ="!rolConductor()" class="form-group">
                     <label for="formGroupExampleInput">Tipo de Documento</label>
                     <input class="form-control" id="disabledInput" type="text" placeholder="{{viajeroDetail.tipoDocumento}}" disabled>
                 </div>
@@ -43,14 +43,17 @@
                    
                 
                 </p>
-        <p *ngIf="!crearCalificacion">
+                <div  *ngIf="!rolViajero()">  
+        <p *ngIf="!crearCalificacion" >
                 <button type="button" class="btn btn-primary" (click)="ActivarCrearCalificacion()" routerLinkActive="active-link" >Crear una calificación</button>
         </p>
+       
           <p *ngIf="crearCalificacion">
                 <app-viajero-add-calificacion [idViajero]='viajeroDetail.id' (updateCalificaciones)="updateCalificaciones()">
                     
                 </app-viajero-add-calificacion>
           </p>
+          </div>
           <p *ngIf="crearCalificacion">
 
                 <button   type="button" class="btn btn-primary" (click)="DesactivarCrearCalificacion()" routerLinkActive="active-link" >Cancelar</button>

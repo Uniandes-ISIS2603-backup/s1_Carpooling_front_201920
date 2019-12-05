@@ -6,12 +6,12 @@
 					<tr>
 						<th>Nombre</th>
 						<th>Correo Electronico</th>
-						<th>Numero De Documento</th>
-						<th>Contraseña</th>
+						<th *ngIf="!rolViajero()">Numero De Documento</th>
+						<th *ngIf="!rolViajero()">Contraseña</th>
 						<th>Telefono</th>
-						<th>Fecha de Nacimiento</th>
-						<th>Tipo de Documento</th>
-						<th>Boton Detalle</th>
+						<th *ngIf="!rolViajero()">Fecha de Nacimiento</th>
+						<th *ngIf="!rolViajero()">Tipo de Documento</th>
+						<th >Boton Detalle</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -19,11 +19,11 @@
 
 						<td>{{i.nombre}}</td>
 						<td>{{i.correo}}</td>
-						<td>{{i.numDocumento}}</td>
-						<td>{{i.contrasenha}}</td>
+						<td *ngIf="!rolViajero()">{{i.numDocumento}}</td>
+						<td *ngIf="!rolViajero()">{{i.contrasenha}}</td>
 						<td>{{i.telefono}}</td>
-						<td>{{i.fechaDeNacimiento}}</td>
-						<td>{{i.tipoDocumento}}</td>
+						<td *ngIf="!rolViajero()">{{i.fechaDeNacimiento}}</td>
+						<td *ngIf="!rolViajero()">{{i.tipoDocumento}}</td>
 						<td> 
 							<a class="btn btn-primary" routerLink="/conductores/{{i.id}}">Ver Detalle</a>
 						</td>
@@ -35,7 +35,7 @@
 	</div>
 
 	<div class="row">
-		<td style="cursor: pointer">
+		<td *ngIf="!rolViajero()" style="cursor: pointer">
 			<button type="button" class="btn btn-primary" (click)="mostrarFormulario()">Crear Conductor</button>
 		</td>
 	</div>
