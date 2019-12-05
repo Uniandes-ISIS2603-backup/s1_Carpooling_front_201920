@@ -33,6 +33,19 @@
 								routerLinkActive="active">Conductores</a>
 						</li>
 					</div>
+					<div *ngIf="roleViajero()">
+						<li class="nav-item">
+							<a class="nav-link active" routerLink="conductores/list"
+								routerLinkActive="active"> Calificar Conductores</a>
+						</li>
+					</div>
+
+					<div *ngIf="roleConductor()">
+						<li class="nav-item">
+							<a class="nav-link active" routerLink="viajeros/list"
+								routerLinkActive="active"> Calificar Viajeros</a>
+						</li>
+					</div>
 					<div *ngIf="roleAdmin()">
 						<li class="nav-item">
 							<a class="nav-link active" routerLink="viajeros/list" routerLinkActive="active">Viajeros</a>

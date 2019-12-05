@@ -21,9 +21,17 @@ export class ConductorListaComponent implements OnInit {
     this.ajustarFechas();
   }
 
+  rolViajero(): boolean
+  {
+    return "VIAJERO"==localStorage.getItem('role');
+  }
+
+
   getConductores(): void{
     this.conductorService.getConductores().subscribe(conductores => this.conductores = conductores);
   }
+
+ 
   
   ajustarFechas(): void{
     for(const conductor of this.conductores){

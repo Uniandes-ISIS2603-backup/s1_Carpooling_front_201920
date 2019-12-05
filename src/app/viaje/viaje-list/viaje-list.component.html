@@ -13,6 +13,10 @@
 				</ul>
 				<a class="btn btn-primary" routerLink="/viajes/{{v.id}}">Ver
 					en Detalle</a>
+					<p>
+						
+					</p>
+					<a *ngIf = "v.estadoViaje=='FINALIZADO'" >¡Disponible para calificar!</a>
 			</div>
 		</div>
 	</div>
