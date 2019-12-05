@@ -180,18 +180,14 @@ const routes: Routes = [
         }
       },
       {
-        path: 'add',
-        children: [{
-          path: ':idViaje',
-          component: ConductorAddViajeComponent,
-          canActivate: [NgxPermissionsGuard],
-          data: {
-            permissions: {
-              only: ['ADMIN', 'CONDUCTOR']
-            }
+        path: 'add/:idConductor',
+        component: ConductorAddViajeComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+          permissions: {
+            only: ['ADMIN', 'CONDUCTOR']
           }
         }
-        ]
       }
     ]
   },
