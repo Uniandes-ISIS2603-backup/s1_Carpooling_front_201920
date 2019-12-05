@@ -14,6 +14,8 @@ import { ConductorDetailComponent } from '../conductor/conductor-detail/conducto
 import { ConductorListaComponent } from '../conductor/conductor-lista/conductor-lista.component';
 import { PublicistaDetailComponent } from '../publicista/publicista-detail/publicista-detail.component';
 import { PublicistaListComponent } from '../publicista/publicista-list/publicista-list.component';
+import { PublicidadListComponent } from '../publicidad/publicidad-list/publicidad-list.component';
+import { PublicidadDetailComponent } from '../publicidad/publicidad-detail/publicidad-detail.component';
 import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
 import { ConductorAddViajeComponent } from '../conductor/conductor-add-viaje/conductor-add-viaje.component';
 import { PrincipalComponent } from '../principal/principal.component'
@@ -85,6 +87,30 @@ const routes: Routes = [
     {
       path: ':id',
       component: PublicistaDetailComponent,
+      canActivate: [NgxPermissionsGuard],
+      data: {
+        permissions: {
+          only: ['ADMIN', 'PUBLICISTA']
+        }
+      }
+    }
+    ]
+  },
+  {
+    path: 'publicidades',
+    children: [{
+      path: 'list',
+      component: PublicidadListComponent,
+      canActivate: [NgxPermissionsGuard],
+      data: {
+        permissions: {
+          only: ['ADMIN']
+        }
+      }
+    },
+    {
+      path: ':id',
+      component: PublicidadDetailComponent,
       canActivate: [NgxPermissionsGuard],
       data: {
         permissions: {

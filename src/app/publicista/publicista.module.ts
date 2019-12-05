@@ -7,6 +7,7 @@ import { PublicistaCreateComponent } from './publicista-create/publicista-create
 import { PublicistaService } from './publicista.service';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { PublicistaAddPublicidadComponent } from './publicista-add-publicidad/publicista-add-publicidad.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [PublicistaListComponent,
     PublicistaDetailComponent,
-    PublicistaCreateComponent],
+    PublicistaCreateComponent,,
+    PublicistaAddPublicidadComponent],
     providers: [PublicistaService],
     exports:[PublicistaListComponent]
 })

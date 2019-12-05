@@ -17,12 +17,10 @@ import { AuthModule } from './auth/auth.module';
 import { ReservaModule } from './reserva/reserva.module';
 import { ViajeroModule } from './viajero/viajero.module';
 import { PublicistaModule } from './publicista/publicista.module';
+import { PublicidadModule } from './publicidad/publicidad.module';
 import { ConductorModule} from './conductor/conductor.module';
 import { NotificacionModule} from './notificacion/notificacion.module';
 import { PrincipalComponent } from './principal/principal.component';
-
-
-
 
 
 @NgModule({
@@ -49,6 +47,7 @@ import { PrincipalComponent } from './principal/principal.component';
         ViajeModule,
         ViajeroModule,
         PublicistaModule,
+        PublicidadModule,
         ReservaModule,
         ReactiveFormsModule,
         ConductorModule,

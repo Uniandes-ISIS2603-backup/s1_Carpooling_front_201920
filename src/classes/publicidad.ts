@@ -8,6 +8,6 @@ export class Publicidad{
     costo:number;
     fechaDeInicio:string;
     fechaDeSalida:string;
-    disponibilidad:Disponibilidad
+    disponibilidad:Disponibilidad;
     publicista:Publicista;
 }
