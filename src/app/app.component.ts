@@ -33,6 +33,10 @@ export class AppComponent implements OnInit {
         return "PUBLICISTA"==localStorage.getItem('role');
     }
 
+    roleAdmin():boolean{
+        return "ADMIN"==localStorage.getItem('role');
+    }
+
     getId():string{
         return localStorage.getItem('id');
     }
