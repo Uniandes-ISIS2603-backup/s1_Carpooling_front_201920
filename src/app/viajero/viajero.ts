@@ -2,7 +2,7 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
-import { TIPODEDOCUMENTO } from './tipo-de-documento.enum';
+import { TIPODEDOCUMENTO } from '../../enums/tipo-de-documento.enum'
 
 
 export class Viajero {
