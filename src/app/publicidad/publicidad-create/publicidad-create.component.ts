@@ -3,7 +3,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PublicidadService } from '../publicidad.service';
 import { ToastrService } from 'ngx-toastr';
-import { Publicidad } from 'src/classes/publicidad';
+import { Publicidad } from '../../../classes/publicidad';
 @Component({
     selector: 'app-publicidad-create',
     templateUrl: './publicidad-create.component.html',

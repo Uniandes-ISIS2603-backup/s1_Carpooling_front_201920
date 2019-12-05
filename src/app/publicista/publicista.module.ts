@@ -17,7 +17,7 @@ import { PublicistaAddPublicidadComponent } from './publicista-add-publicidad/pu
   ],
   declarations: [PublicistaListComponent,
     PublicistaDetailComponent,
-    PublicistaCreateComponent,,
+    PublicistaCreateComponent,
     PublicistaAddPublicidadComponent],
     providers: [PublicistaService],
     exports:[PublicistaListComponent]
