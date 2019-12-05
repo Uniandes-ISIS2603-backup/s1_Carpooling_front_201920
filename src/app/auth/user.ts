@@ -1,4 +1,4 @@
-import { TIPODEDOCUMENTO } from '../../enums/tipo-de-documento.enum'
+import { TipoDeDocumento } from '../../enums/tipo-de-documento.enum'
 
 /**
 * This class represents a user of s1_carpooling-Front.
@@ -12,7 +12,7 @@ export class User {
     name: string;
     telefono: string;
     correo: string;
-    tipoDocumento: TIPODEDOCUMENTO;
+    tipoDocumento: TipoDeDocumento;
     fechaDeNacimiento: string;
     numDocumento : string;
 

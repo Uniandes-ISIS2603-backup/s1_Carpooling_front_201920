@@ -9,7 +9,7 @@ import {PublicistaService} from '../../publicista/publicista.service'
 import {Conductor} from '../../conductor/conductor'
 import {Viajero} from '../../viajero/viajero'
 import {Publicista} from '../../publicista/publicista'
-//import {TIPODEDOCUMENTO} from '../../../enums/tipo-de-documento.enum';
+import {TipoDeDocumento} from '../../../enums/tipo-de-documento.enum';
 
 @Component({
     selector: 'app-auth-sign-up',
