@@ -22,7 +22,14 @@
                     <option [value]="tipoDocumento" *ngFor="let tipoDocumento of tipoDocumentos">{{tipoDocumento}}</option>
                 </select>
             </div>
-
+            <div class="form-group">
+                <label for="numDocumento"><b>Número de Documento</b></label>
+                <input type="text" name="numDocumento" class="form-control" id="numDocumento" [(ngModel)]="user.numDocumento" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaDeNacimiento"><b>Fecha de Nacimiento</b></label>
+                <input placeholder="YYYY-MM-DD" type="text" name="fechaDeNacimiento" class="form-control" id="fechaDeNacimiento" [(ngModel)]="user.fechaDeNacimiento" >
+            </div>
             <div class="form-group">
                 <label for="password"><b>Password</b></label>
                 <input type="text" name="password" class="form-control" id="password" [(ngModel)]="user.password" required>

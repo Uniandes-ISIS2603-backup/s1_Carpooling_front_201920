@@ -2,7 +2,7 @@
 * This class represents a user of s1_carpooling-Front.
 * It contains all the information relevant to the user.
 */
-import { TipoDeDocumento } from './tipo-de-documento.enum';
+import { TIPODEDOCUMENTO } from '../../enums/tipo-de-documento.enum'
 
 export class User {
     /**
@@ -11,9 +11,11 @@ export class User {
     name: string;
     telefono: string;
     correo: string;
-    tipoDocumento: TipoDeDocumento;
+    tipoDocumento: TIPODEDOCUMENTO;
     fechaDeNacimiento: string;
+    numDocumento : string;
 
+    
     /**
     * The user's password
     */
