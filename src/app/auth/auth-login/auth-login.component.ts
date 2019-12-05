@@ -12,6 +12,8 @@ import { ViajeroService } from '../../viajero/viajero.service';
 import { Publicista } from '../../publicista/publicista';
 import { Viajero } from '../../viajero/viajero';
 import { Conductor } from '../../conductor/conductor';
+import { GuardsCheckStart } from '@angular/router';
+import { TrustedUrlString } from '@angular/core/src/sanitization/bypass';
 
 
 @Component({
@@ -48,9 +50,14 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        let varId:number, encontrado:boolean;
+        let varId:number, encontrado:boolean, admin:boolean;
         if(this.user.role == "Viajero"){
-            
+            for(let viajero of this.viajeros){
+                if(viajero.correo == this.user.name && viajero.contrasenha == this.user.password){
+                    varId = viajero.id;
+                    encontrado = true;
+                }
+            }
         }
         else if(this.user.role == "Conductor"){
             for(let conductor of this.conductores){
@@ -62,15 +69,21 @@ export class AuthLoginComponent implements OnInit {
         }
         else if(this.user.role == "Publicista"){
             for(let publicista of this.publicistas){
-                
+                if(publicista.correo == this.user.name && publicista.contrasenha == this.user.password){
+                    varId = publicista.id;
+                    encontrado = true;
+                }
             }
         }
-        else{
-
+        else if(this.user.role == "Administrador"){
+            encontrado = true;
+            admin = true;
         }
         if(encontrado){
             this.authService.login(this.user.role);
-            this.authService.setId(varId);
+            if(!admin){
+                this.authService.setId(varId);
+            }
             this.toastrService.success('Logged in');
         }
         else{
@@ -86,7 +99,7 @@ export class AuthLoginComponent implements OnInit {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['Publicista','Conductor','Viajero', 'GUEST'];
+        this.roles = ['Publicista','Conductor','Viajero', 'Administrador'];
         this.publicistaService.getPublicistas().subscribe(publicistas => this.publicistas = publicistas);
         this.conductorService.getConductores().subscribe(conductores => this.conductores = conductores);
         this.viajeroService.getViajeros().subscribe(viajeros => this.viajeros = viajeros);
