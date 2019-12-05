@@ -17,7 +17,8 @@
           <dd>{{conductorDetail.correo}}</dd>
         </dl>
       </div>
-      <app-conductor-add-viaje [vehiculos]='conductorDetail.vehiculos' [conductorId]='conductorId' (updateViajes)="updateViajes()"></app-conductor-add-viaje>
+      <!--<app-conductor-add-viaje [vehiculos]='conductorDetail.vehiculos' [conductorId]='conductorId' (updateViajes)="updateViajes()"></app-conductor-add-viaje>-->
+      <button type="button" class="btn btn-primary" routerLink="/viajes/add/{{conductorId}}">Crear viaje</button>
     </div>
     <div class="col-md-9">
       <app-conductor-viajes [conductorViajes]='conductorDetail.viajes'></app-conductor-viajes>

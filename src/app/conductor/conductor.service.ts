@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Conductor } from './conductor';
-import { ConductorDetail } from './conductor-detail';
+import { ConductorDetail } from '../../classes/conductor-detail';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ViajeDetail } from '../../classes/viaje-detail';
