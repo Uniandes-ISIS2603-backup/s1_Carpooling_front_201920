@@ -54,6 +54,12 @@ export class AuthService {
         localStorage.setItem('role', 'PUBLICISTA');
     }
 
+    setAdministradorRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('ADMIN', []);
+        localStorage.setItem('role', 'ADMIN');
+    }
+
     printRole (): void {
         console.log(this.roleService.getRoles());
     }
@@ -72,6 +78,9 @@ export class AuthService {
         else if( role == "Publicista") {
             this.setPublicistaRole()
         }
+        else if( role == "Administrador") {
+            this.setAdministradorRole()
+        }
         this.router.navigateByUrl('/');
     }
 
@@ -86,6 +95,7 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('id');
         this.router.navigateByUrl('/');
     }
 }
