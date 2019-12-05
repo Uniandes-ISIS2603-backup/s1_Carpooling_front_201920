@@ -43,6 +43,8 @@ export class ConductorAddViajeComponent implements OnInit {
 
   postViaje(newViaje: ViajeDetail):void{
     newViaje.estadoViaje=EstadoDeViaje.PUBLICADO;
+    newViaje.fechaDeLlegada = newViaje.fechaDeLlegada + "T00:00:00-05:00";
+    newViaje.fechaDeSalida = newViaje.fechaDeSalida + "T00:00:00-05:00";
     this.conductorService.createViaje(newViaje, this.conductorId, newViaje.vehiculo.id).subscribe(
       ()=>{
         this.viajeForm.reset();
