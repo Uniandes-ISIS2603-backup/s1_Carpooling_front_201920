@@ -11,15 +11,19 @@ import {ConductorCalificacionComponent} from './conductor-calificacion/conductor
 import {ConductorAddCalificacionComponent} from './conductor-add-calificacion/conductor-add-calificacion.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViajeModule } from '../viaje/viaje.module';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule, ReactiveFormsModule,  ReactiveFormsModule,
-    NgbModule, ViajeModule
+    CommonModule, 
+    ReactiveFormsModule,
+    NgbModule, 
+    ViajeModule,
+    AppRoutingModule
   ],
   declarations: [ConductorListaComponent, ConductorDetailComponent, ConductorCreateComponent, ConductorViajesComponent, ConductorAddViajeComponent, ConductorCalificacionComponent,
     ConductorAddCalificacionComponent],
   providers: [ConductorService],
-  exports: [ConductorListaComponent, ConductorCreateComponent, ReactiveFormsModule, FormsModule, ConductorAddViajeComponent, ConductorAddCalificacionComponent ]
+  exports: [ConductorListaComponent, ConductorCreateComponent, ReactiveFormsModule, FormsModule, ConductorAddViajeComponent, ConductorAddCalificacionComponent]
 })
 export class ConductorModule { }

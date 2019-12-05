@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Trayecto } from '../trayecto';
+import { Trayecto } from '../../../classes/trayecto';
 
 @Component({
   selector: 'app-viaje-trayectos',
@@ -7,17 +7,14 @@ import { Trayecto } from '../trayecto';
   styleUrls: ['./viaje-trayectos.component.css']
 })
 export class ViajeTrayectosComponent implements OnInit {
-  @Input() viajeTrayectos : Trayecto [];
 
-  public isCollapsed = false;
-
-  updateReviews(trayectos:Trayecto[]): void {
-    this.viajeTrayectos = trayectos;
-}
-
-  constructor() { }
+  @Input() trayectos:Trayecto[];
 
   ngOnInit() {
   }
 
+  updateTrayectos(trayectos:Trayecto[]): void {
+    this.trayectos = trayectos
+  }
+  constructor() { }
 }

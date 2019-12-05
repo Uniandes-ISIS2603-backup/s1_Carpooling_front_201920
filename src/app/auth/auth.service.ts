@@ -20,14 +20,20 @@ export class AuthService {
     start (): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
+        this.permissionsService.loadPermissions([]);
         const role = localStorage.getItem('role');
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
-            this.setAdministratorRole();
-        } else {
-            this.setClientRole();
+            this.setAdministradorRole;
+        } else if(role == 'VIAJERO'){
+            this.roleService;
+        }
+        else if(role == 'CONDUCTOR'){
+           this.setConductorRole ;
+        }
+        else if(role == 'PUBLICISTA'){
+           this.setPublicistaRole ;
         }
     }
 
@@ -36,15 +42,27 @@ export class AuthService {
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setClientRole (): void {
+    setViajeroRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('CLIENT', ['leave_review']);
-        localStorage.setItem('role', 'CLIENT');
+        this.roleService.addRole('VIAJERO', []);
+        localStorage.setItem('role', 'VIAJERO');
     }
 
-    setAdministratorRole (): void {
+    setConductorRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
+        this.roleService.addRole('CONDUCTOR', []);
+        localStorage.setItem('role', 'CONDUCTOR');
+    }
+
+    setPublicistaRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('PUBLICISTA', []);
+        localStorage.setItem('role', 'PUBLICISTA');
+    }
+
+    setAdministradorRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('ADMIN', []);
         localStorage.setItem('role', 'ADMIN');
     }
 
@@ -56,13 +74,24 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
-        if (role === 'Administrator') {
-            this.setAdministratorRole();
-        } else {
-            this.setClientRole()
+    login (role:string): void {
+        if (role == "Viajero") {
+            this.setViajeroRole()
+        } 
+        else if( role == "Conductor") {
+            this.setConductorRole()
+        }
+        else if( role == "Publicista") {
+            this.setPublicistaRole()
+        }
+        else if( role == "Administrador") {
+            this.setAdministradorRole()
         }
         this.router.navigateByUrl('/');
+    }
+
+    setId (id:number): void {
+        localStorage.setItem('id', id+"");
     }
 
     /**
@@ -72,6 +101,7 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('id');
         this.router.navigateByUrl('/');
     }
 }

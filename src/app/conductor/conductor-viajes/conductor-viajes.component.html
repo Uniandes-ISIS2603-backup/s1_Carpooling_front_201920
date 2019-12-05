@@ -10,6 +10,8 @@
             <th scope="col">Cupos</th>
             <th scope="col">Costo</th>
             <th scope="col">Estado</th>
+            <th>Detalle</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +24,12 @@
             <td>{{v.cupos}}</td>
             <td>{{v.costoViaje}}</td>
             <td>{{v.estadoViaje}}</td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm" routerLink="/viajes/{{v.id}}">Detalle</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-secondary btn-sm">Eliminar</button>
+            </td>
         </tr>
     </tbody>
 </table>

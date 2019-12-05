@@ -6,7 +6,7 @@ import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Calificacion } from '../calificacion';
 import { ViajeroService } from '../viajero.service';
 import { Viajero } from '../../viajero/viajero';
-import { Viaje } from '../../viaje/viaje';
+import { Viaje } from '../../../classes/viaje';
 import { ViajeService } from '../../viaje/viaje.service';
 @Component({
   selector: 'app-viajero-add-calificacion',

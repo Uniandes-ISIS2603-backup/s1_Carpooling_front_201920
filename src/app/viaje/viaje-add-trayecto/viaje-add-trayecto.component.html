@@ -1,58 +1,48 @@
-<form [formGroup]="trayectoForm" (ngSubmit)="postTrayecto(trayectoForm.value )">
-
-    <div class="form-group mx-sm-3 mb-2">
-     <label for="origen">
-       Origen
-     </label>
-     <input
-       id="origen"
-       type="text"
-       class="form-control"
-       formControlName="origen"
-       placeholder="">
-    </div>
- 
-    <div class="form-group  mx-sm-3 mb-2">
-     <label for="destino">
-       Destino
-     </label>
-    <input id="destino" type="text"
-      class="form-control"
-      formControlName="destino"
-      placeholder="">
-   </div>
-
-   <div class="form-group  mx-sm-3 mb-2">
-      <label for="costoCombustible">
-        Costo combustible
-      </label>
-     <input id="costoCombustible" type="number"
-       class="form-control"
-       formControlName="costoCombustible"
-       placeholder="">
-    </div>
-
-    <div class="form-group  mx-sm-3 mb-2">
-        <label for="duracion">
-          Duracion
-        </label>
-       <input id="duracion" type="number"
-         class="form-control"
-         formControlName="duracion"
-         placeholder="">
-      </div>
-
-      <div class="form-group  mx-sm-3 mb-2">
+<div class="container-fluid">
+  <h1>Formulario Viajes</h1>
+  <div class="row">
+    <div class="col-md-10">
+      <form [formGroup]="trayectoForm" (ngSubmit)="postTrayecto(trayectoForm.value )">
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="origen">
+            Origen
+          </label>
+          <input id="origen" type="text" class="form-control" formControlName="origen" placeholder="">
+        </div>
+        <div class="form-group  mx-sm-3 mb-2">
+          <label for="destino">
+            Destino
+          </label>
+          <input id="destino" type="text" class="form-control" formControlName="destino" placeholder="">
+        </div>
+        <div class="form-group  mx-sm-3 mb-2">
+          <label for="costoCombustible">
+            Costo combustible
+          </label>
+          <input id="costoCombustible" type="number" class="form-control" formControlName="costoCombustible"
+            placeholder="">
+        </div>
+        <div class="form-group  mx-sm-3 mb-2">
+          <label for="duracion">
+            Duracion
+          </label>
+          <input id="duracion" type="number" class="form-control" formControlName="duracion" placeholder="">
+        </div>
+        <div class="form-group  mx-sm-3 mb-2">
           <label for="numPeajes">
             Numero de peajes
           </label>
-         <input id="numPeajes" type="number"
-           class="form-control"
-           formControlName="numPeajes"
-           placeholder="">
+          <input id="numPeajes" type="number" class="form-control" formControlName="numPeajes" placeholder="">
         </div>
- 
-   <button class="button mx-sm-3 mb-2" type="submit"   
-           [disabled]="trayectoForm.invalid">Create</button>
- 
- </form>
+        <div class="row">
+          <div class="col-md-5">
+            <button class="btn btn-success" type="submit" [disabled]="trayectoForm.invalid">Create</button>
+          </div>
+          <div class="col-md-5">
+            <button class="btn btn-danger" type="button" onclick="history.back()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

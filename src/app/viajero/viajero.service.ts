@@ -43,7 +43,9 @@ export class ViajeroService {
     * @returns The new author with the new id
     */
    createViajero(viajero): Observable<Viajero> {
+     console.log("Creando");
     return this.http.post<Viajero>(API_URL + viajeros, viajero);
+
 }
 
     createCalificacion(viajeroId, calificacion): Observable<Calificacion> {
