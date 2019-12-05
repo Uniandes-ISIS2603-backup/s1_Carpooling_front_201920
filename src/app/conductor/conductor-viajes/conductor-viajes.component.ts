@@ -13,6 +13,11 @@ export class ConductorViajesComponent implements OnInit {
   updateViajes(viajes:Viaje[]):void{
     this.conductorViajes=viajes;
   }
+  
+  rolConductor(): boolean
+{
+  return "CONDUCTOR"==localStorage.getItem('role');
+}
 
   constructor() { }
 

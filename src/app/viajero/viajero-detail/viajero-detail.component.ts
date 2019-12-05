@@ -89,5 +89,16 @@ toggleCreateCalificacion(): void {
       this.getViajeroDetail();
     }
 
-  }
+}
+
+rolConductor(): boolean
+{
+  return "CONDUCTOR"==localStorage.getItem('role');
+}
+
+rolViajero(): boolean
+{
+  return "VIAJERO"==localStorage.getItem('role');
+}
+
 }

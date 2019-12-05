@@ -35,6 +35,18 @@ export class ConductorDetailComponent implements OnInit {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
 
+  rolViajero(): boolean
+{
+  return "VIAJERO"==localStorage.getItem('role');
+}
+
+
+rolConductor(): boolean
+{
+  return "CONDUCTOR"==localStorage.getItem('role');
+}
+
+
   onLoad(params) {
     this.conductorId = parseInt(params['id']);
     this.conductorDetail = new ConductorDetail();
@@ -67,5 +79,6 @@ export class ConductorDetailComponent implements OnInit {
     this.calificacionListComponent.isCollapsed = false;
     this.calificacionAddComponent.isCollapsed = true;
 }
+
 
 }

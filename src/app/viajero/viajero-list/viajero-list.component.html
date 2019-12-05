@@ -9,11 +9,11 @@
 						<th>Ver Detalle</th> 
 						<th>Nombre</th>
 						<th>correo</th>
-						<th>Numero De Documento</th>
-						<th>Contraseña</th>
-						<th>Telefono</th>
-						<th>Fecha de Nacimiento</th>
-						<th>Tipo de Documento</th>
+						<th *ngIf= "!rolConductor()">Numero De Documento</th>
+						<th *ngIf= "!rolConductor()">Contraseña</th>
+						<th >Telefono</th>
+						<th *ngIf= "!rolConductor()">Fecha de Nacimiento</th>
+						<th *ngIf= "!rolConductor()">Tipo de Documento</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,26 +28,26 @@
 						<td style="cursor: pointer;">
 							<a class="figure-caption" (click)="onSelected(i.id)">{{i.correo}}</a>
 						</td>
-						<td style="cursor: pointer;">
+						<td *ngIf= "!rolConductor()" style="cursor: pointer;">
 							<a class="figure-caption" (click)="onSelected(i.id)">{{i.numDocumento}}</a>
 						</td>
-						<td style="cursor: pointer;">
+						<td  *ngIf= "!rolConductor()" style="cursor: pointer;">
 							<a class="figure-caption" (click)="onSelected(i.id)">{{i.contrasenha}}</a>
 						</td>
-						<td style="cursor: pointer;">
+						<td  style="cursor: pointer;">
 							<a class="figure-caption" (click)="onSelected(i.id)">{{i.telefono}}</a>
 						</td>
-						<td style="cursor: pointer;">
+						<td *ngIf= "!rolConductor()" style="cursor: pointer;">
 							<a class="figure-caption" (click)="onSelected(i.id)">{{i.fechaDeNacimiento}}</a>
 						</td>
-						<td style="cursor: pointer;">
+						<td *ngIf= "!rolConductor()" style="cursor: pointer;">
 							<a class="figure-caption" (click)="onSelected(i.id)">{{i.tipoDocumento}}</a>
 						</td>
 
 					</tr>
 				</tbody>
 			</table>
-			<div class="row justify-content-center align-self-center" >
+			<div *ngIf= "!rolConductor()" class="row justify-content-center align-self-center" >
 					<button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
 						(click)="showHideCreate()">Crear un viajero</button>
 				</div>

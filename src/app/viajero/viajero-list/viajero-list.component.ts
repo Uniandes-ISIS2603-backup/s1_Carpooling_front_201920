@@ -33,6 +33,12 @@ export class ViajeroListComponent implements OnInit {
     */
    showCreate: boolean;
 
+
+   rolConductor(): boolean
+   {
+     return "CONDUCTOR"==localStorage.getItem('role');
+   }
+
   /**
    * Asks the service to update the list of editorials
    */
